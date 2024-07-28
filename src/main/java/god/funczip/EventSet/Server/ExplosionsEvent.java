@@ -13,9 +13,9 @@ import static god.funczip.Funczip.MODID;
 @EventBusSubscriber(modid = MODID, value = Dist.DEDICATED_SERVER)
 public class ExplosionsEvent {
     @SubscribeEvent
-    public static void onExplosion(ExplosionEvent.Start event){
-        if(event.getExplosion().getDirectSourceEntity() instanceof Creeper){
-            ObfuscationReflectionHelper.setPrivateValue(Explosion.class,event.getExplosion(), Explosion.BlockInteraction.KEEP, "blockInteraction" );
+    public static void onExplosion(ExplosionEvent.Start event) {
+        if (event.getExplosion().getDirectSourceEntity() instanceof Creeper) {
+            ObfuscationReflectionHelper.setPrivateValue(Explosion.class, event.getExplosion(), Explosion.BlockInteraction.KEEP, "blockInteraction");
         }
     }
 }

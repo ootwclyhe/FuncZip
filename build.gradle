@@ -22,6 +22,7 @@ base {
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
 neoForge {
+
     // Specify the version of NeoForge to use.
     version = project.neo_version
 
@@ -101,6 +102,7 @@ configurations {
 }
 
 dependencies {
+    implementation 'net.neoforged.jst:jst-cli-bundle:1.0.58'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.17.2'
     implementation 'com.zaxxer:HikariCP:5.1.0'
 

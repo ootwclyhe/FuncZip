@@ -19,6 +19,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.Iterator;
 import java.util.List;
 
+import static net.minecraft.world.level.block.CampfireBlock.LIT;
+
 @Mixin(CampfireBlockEntity.class)
 public abstract class CampfireBlockEntityMixin extends BlockEntity {
 
@@ -28,18 +30,18 @@ public abstract class CampfireBlockEntityMixin extends BlockEntity {
 
     @Inject(method = "cookTick", at = @At("HEAD"))
     private static void healTick1(Level level, BlockPos pos, BlockState state, CampfireBlockEntity blockEntity, CallbackInfo ci) {
-        funcZip$applyEffect(level, pos);
+        funcZip$applyEffect(level, pos, state);
     }
+
     @Inject(method = "cooldownTick", at = @At("HEAD"))
     private static void healTick2(Level level, BlockPos pos, BlockState state, CampfireBlockEntity blockEntity, CallbackInfo ci) {
-        funcZip$applyEffect(level, pos);
-
+        funcZip$applyEffect(level, pos, state);
     }
 
 
     @Unique
-    private static void funcZip$applyEffect(Level level, BlockPos pos) {
-        if (!level.isClientSide && level.getGameTime() % 80L == 0L) {
+    private static void funcZip$applyEffect(Level level, BlockPos pos, BlockState state) {
+        if (level.getGameTime() % 80L == 0L && !level.isClientSide && state.getValue(LIT)) {
             double d0 = 5;
             int i = 0;
             int j = 85;
@@ -47,7 +49,7 @@ public abstract class CampfireBlockEntityMixin extends BlockEntity {
             List<Player> list = level.getEntitiesOfClass(Player.class, aabb);
             Iterator<Player> var11 = list.iterator();
             Player player1;
-            while(var11.hasNext()) {
+            while (var11.hasNext()) {
                 player1 = var11.next();
                 player1.addEffect(new MobEffectInstance(MobEffects.REGENERATION, j, i, true, true));
             }

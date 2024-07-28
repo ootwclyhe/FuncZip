@@ -21,9 +21,9 @@ public class FishEvent {
     public static void onFished(FishBitEvent event) throws InterruptedException, InvocationTargetException, IllegalAccessException {
         MultiPlayerGameMode mc = Minecraft.getInstance().gameMode;
         LocalPlayer p = Minecraft.getInstance().player;
-        ctp.execute(()->{
+        ctp.execute(() -> {
             if (mc != null) {
-                InteractionHand hand = p.getMainHandItem().getItem() instanceof FishingRodItem?InteractionHand.MAIN_HAND:InteractionHand.OFF_HAND;
+                InteractionHand hand = p.getMainHandItem().getItem() instanceof FishingRodItem ? InteractionHand.MAIN_HAND : InteractionHand.OFF_HAND;
                 mc.useItem(p, hand);
                 try {
                     Thread.sleep(5L);
