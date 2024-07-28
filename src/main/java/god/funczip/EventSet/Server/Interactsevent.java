@@ -41,6 +41,7 @@ public class Interactsevent {
         ItemStack is = player.getItemInHand(hand);
         if(is.isEmpty() || !is.getItem().equals(Items.GLASS_BOTTLE)) {return InteractionResultHolder.pass(is);}
         if(player.totalExperience >= 11 && notAimingAtFluid(world, player) ){
+            player.giveExperiencePoints(-11);
             is.shrink(1);
             player.getInventory().placeItemBackInInventory(new ItemStack(Items.EXPERIENCE_BOTTLE));
             return InteractionResultHolder.consume(is);
