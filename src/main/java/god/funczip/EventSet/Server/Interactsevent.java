@@ -11,28 +11,24 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.event.ItemStackedOnOtherEvent;
-import net.neoforged.neoforge.event.entity.item.ItemTossEvent;
-import net.neoforged.neoforge.event.entity.living.LivingEntityUseItemEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
-import net.neoforged.neoforge.event.entity.player.UseItemOnBlockEvent;
 
 import static god.funczip.Funczip.MODID;
 import static net.minecraft.world.item.Item.getPlayerPOVHitResult;
 import static net.minecraft.world.level.block.AnvilBlock.FACING;
-import static net.minecraft.world.level.block.Blocks.*;
+import static net.minecraft.world.level.block.Blocks.ANVIL;
+import static net.minecraft.world.level.block.Blocks.CHIPPED_ANVIL;
 
 @EventBusSubscriber(modid = MODID, value = Dist.DEDICATED_SERVER)
 public class Interactsevent {
-
-    @SubscribeEvent
+    @SubscribeEvent(priority = EventPriority.LOW)
     public static void onintercat1(PlayerInteractEvent.RightClickItem event){
         InteractionResultHolder<ItemStack> result = onboxexp((ServerPlayer) event.getEntity(), (ServerLevel) event.getLevel(), event.getHand());
         if (result.getResult().consumesAction()) {
@@ -47,7 +43,7 @@ public class Interactsevent {
         if(player.totalExperience >= 11 && notAimingAtFluid(world, player) ){
             is.shrink(1);
             player.getInventory().placeItemBackInInventory(new ItemStack(Items.EXPERIENCE_BOTTLE));
-            return InteractionResultHolder.sidedSuccess(is, false);
+            return InteractionResultHolder.consume(is);
         }
         return InteractionResultHolder.pass(is);
     }
