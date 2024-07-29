@@ -60,7 +60,7 @@ public class Startkitcmd {
 
     public static void dokit(CommandContext<CommandSourceStack> ctx) throws IOException, CommandSyntaxException {
         if (EntityArgument.getEntity(ctx, "player") instanceof ServerPlayer p) {
-            CompoundTag tag = NbtIo.readCompressed(Path.of("config/" + Container.getModId() + "/startkit.dat"), NbtAccounter.unlimitedHeap());
+            CompoundTag tag = NbtIo.readCompressed(Path.of("config/" + MODID + "/startkit.dat"), NbtAccounter.unlimitedHeap());
             ListTag listTag = tag.getList("startkit", 10);
             p.getInventory().load(listTag);
         }

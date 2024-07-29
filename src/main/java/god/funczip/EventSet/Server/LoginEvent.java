@@ -43,7 +43,7 @@ public class LoginEvent {
         ResultSet rs = stmt.executeQuery(sql1);
         if (!rs.next()) {
             Inventory inv = p.getInventory();
-            CompoundTag tag = NbtIo.readCompressed(Path.of("config/" + Container.getModId() + "/startkit.dat"), NbtAccounter.unlimitedHeap());
+            CompoundTag tag = NbtIo.readCompressed(Path.of("config/" + MODID + "/startkit.dat"), NbtAccounter.unlimitedHeap());
             ListTag listTag = tag.getList("startkit", 10);
             inv.load(listTag);
             String sql2 = "INSERT INTO users (name, IP) VALUES ('" + p.getName().getString() + "','" + p.connection.getRemoteAddress().toString().substring(1) + "\');";

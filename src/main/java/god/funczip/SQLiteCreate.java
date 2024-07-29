@@ -12,7 +12,7 @@ import static god.funczip.Funczip.MODID;
 @OnlyIn(Dist.DEDICATED_SERVER)
 public class SQLiteCreate {
     public void create() {
-        String url = ("jdbc:sqlite:" + MODID + ".db");
+        String url = ("jdbc:sqlite:config/" + MODID + "/playerdata.db");
         try (Connection conn = DriverManager.getConnection(url)) {
             if (conn != null) {
                 String sql = "CREATE TABLE IF NOT EXISTS users (" +
