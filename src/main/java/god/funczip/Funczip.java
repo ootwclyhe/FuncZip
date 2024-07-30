@@ -22,7 +22,8 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 import static god.funczip.EntityRegister.ENTITIES;
-import static god.funczip.ItemRegster.ITEMS;
+import static god.funczip.ItemRegister.ITEMS;
+import static god.funczip.SoundEventRegister.SOUNDEVENTS;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(Funczip.MODID)
@@ -65,7 +66,7 @@ public class Funczip {
             stmt.close();
             conn.close();
         }
-
+        SOUNDEVENTS.register(modEventBus);
         ITEMS.register(modEventBus);
         ENTITIES.register(modEventBus);
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us

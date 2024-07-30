@@ -11,3 +11,5 @@
 铁砧修复anvil repair
 
 末影钓竿endereye rod
+
+泰拉魔镜magic mirror of terraria

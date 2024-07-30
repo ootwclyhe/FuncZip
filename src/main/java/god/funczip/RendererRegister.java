@@ -17,7 +17,7 @@ public class RendererRegister {
     @SubscribeEvent
     public static void registerEntityRenders(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(EntityRegister.eyeHookEntity.get(), EyeHookRenderer::new);
-        ItemProperties.register(ItemRegster.EnderEyeRod.get(), ResourceLocation.withDefaultNamespace("cast"), (p_174585_, p_174586_, p_174587_, p_174588_) -> {
+        ItemProperties.register(ItemRegister.EnderEyeRod.get(), ResourceLocation.withDefaultNamespace("cast"), (p_174585_, p_174586_, p_174587_, p_174588_) -> {
             if (p_174587_ == null) {
                 return 0.0F;
             } else {
