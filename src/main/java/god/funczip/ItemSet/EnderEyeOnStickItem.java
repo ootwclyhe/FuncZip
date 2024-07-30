@@ -35,13 +35,7 @@ public class EnderEyeOnStickItem extends FishingRodItem {
         if (player.fishing != null) {
             if (!level.isClientSide) {
                 player.fishing.discard();
-                ItemStack original = itemstack.copy();
-                itemstack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
-                if (itemstack.isEmpty()) {
-                    onPlayerDestroyItem(player, original, hand);
-                }
             }
-
             level.playSound(
                     null,
                     player.getX(),
@@ -76,6 +70,11 @@ public class EnderEyeOnStickItem extends FishingRodItem {
                     EyeHookEntity eyeofender = new EyeHookEntity(player, level);
                     eyeofender.signalTo(pos);
                     level.addFreshEntity(eyeofender);
+                    ItemStack original = itemstack.copy();
+                    itemstack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
+                    if (itemstack.isEmpty()) {
+                        onPlayerDestroyItem(player, original, hand);
+                    }
                 }
             }
             player.awardStat(Stats.ITEM_USED.get(this));
