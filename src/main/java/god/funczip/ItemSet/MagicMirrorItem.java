@@ -41,7 +41,7 @@ public class MagicMirrorItem extends Item {
             level.addParticle(
                     ParticleTypes.INSTANT_EFFECT,
                     true,
-                    player.getX(), player.getY() + 2D, player.getZ(),
+                    player.getX(), player.getY() + 1.5D, player.getZ(),
                     (0.50D - level.random.nextDouble()) * 2D, 0, (0.50D - level.random.nextDouble()) * 2D
             );
             level.addParticle(
