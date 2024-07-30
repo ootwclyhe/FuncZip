@@ -8,6 +8,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.FishingHook;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
@@ -54,9 +55,22 @@ public class EyeHookEntity extends FishingHook {
         }
     }
 
+    private boolean shouldStopFishing(Player player) {
+        ItemStack itemstack = player.getMainHandItem();
+        ItemStack itemstack1 = player.getOffhandItem();
+        boolean flag = itemstack.canPerformAction(net.neoforged.neoforge.common.ItemAbilities.FISHING_ROD_CAST);
+        boolean flag1 = itemstack1.canPerformAction(net.neoforged.neoforge.common.ItemAbilities.FISHING_ROD_CAST);
+        if (!player.isRemoved() && player.isAlive() && (flag || flag1) && !(this.distanceToSqr(player) > 1024.0)) {
+            return false;
+        } else {
+            this.discard();
+            return true;
+        }
+    }
 
     @Override
     public void tick() {
+        shouldStopFishing(this.getPlayerOwner());
         baseTick();
         Vec3 vec3 = this.getDeltaMovement();
         double d0 = this.getX() + vec3.x;

@@ -11,6 +11,5 @@
 铁砧修复anvil repair
 
 末影钓竿endereye rod:
-还差合成表未写、换手收杆bug未修
+还差合成表未写
 craftrecipe missing；
-swap item bug；
