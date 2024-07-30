@@ -10,6 +10,4 @@
 
 铁砧修复anvil repair
 
-末影钓竿endereye rod:
-还差合成表未写
-craftrecipe missing；
+末影钓竿endereye rod
