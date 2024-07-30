@@ -13,7 +13,7 @@ public class Config {
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
     public static final ModConfigSpec.ConfigValue<String> INVKITC = BUILDER
             .comment("json format")
-            .define("startkit", "[{\"tags\":{\"count\":{\"data\":64},\"Slot\":{\"data\":0},\"id\":{\"data\":\"minecraft:torch\"}}},{\"tags\":{\"count\":{\"data\":1},\"Slot\":{\"data\":1},\"id\":{\"data\":\"minecraft:iron_pickaxe\"}}},{\"tags\":{\"count\":{\"data\":1},\"Slot\":{\"data\":2},\"id\":{\"data\":\"minecraft:iron_axe\"}}},{\"tags\":{\"count\":{\"data\":1},\"Slot\":{\"data\":3},\"id\":{\"data\":\"minecraft:fishing_rod\"}}},{\"tags\":{\"count\":{\"data\":1},\"Slot\":{\"data\":4},\"id\":{\"data\":\"minecraft:iron_hoe\"}}},{\"tags\":{\"count\":{\"data\":1},\"Slot\":{\"data\":5},\"id\":{\"data\":\"minecraft:iron_sword\"}}},{\"tags\":{\"count\":{\"data\":1},\"Slot\":{\"data\":6},\"id\":{\"data\":\"minecraft:iron_shovel\"}}},{\"tags\":{\"count\":{\"data\":1},\"Slot\":{\"data\":100},\"id\":{\"data\":\"minecraft:iron_boots\"}}},{\"tags\":{\"count\":{\"data\":1},\"Slot\":{\"data\":101},\"id\":{\"data\":\"minecraft:iron_leggings\"}}},{\"tags\":{\"count\":{\"data\":1},\"Slot\":{\"data\":102},\"id\":{\"data\":\"minecraft:iron_chestplate\"}}},{\"tags\":{\"count\":{\"data\":1},\"Slot\":{\"data\":103},\"id\":{\"data\":\"minecraft:iron_helmet\"}}},{\"tags\":{\"count\":{\"data\":1},\"Slot\":{\"data\":-106},\"id\":{\"data\":\"minecraft:shield\"}}}]");
+            .define("startkit", "inner");
 
 
     public static final ModConfigSpec SPEC = BUILDER.build();

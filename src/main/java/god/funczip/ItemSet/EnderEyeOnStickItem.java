@@ -18,6 +18,8 @@ import net.minecraft.world.level.gameevent.GameEvent;
 
 import java.util.HashMap;
 
+import static net.neoforged.neoforge.event.EventHooks.onPlayerDestroyItem;
+
 
 public class EnderEyeOnStickItem extends FishingRodItem {
     public HashMap<Level, BlockPos> cacheender = new HashMap();
@@ -32,11 +34,10 @@ public class EnderEyeOnStickItem extends FishingRodItem {
         ItemStack itemstack = player.getItemInHand(hand);
         if (player.fishing != null) {
             if (!level.isClientSide) {
-                int i = player.fishing.retrieve(itemstack);
                 ItemStack original = itemstack.copy();
-                itemstack.hurtAndBreak(i, player, LivingEntity.getSlotForHand(hand));
+                itemstack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
                 if (itemstack.isEmpty()) {
-                    net.neoforged.neoforge.event.EventHooks.onPlayerDestroyItem(player, original, hand);
+                    onPlayerDestroyItem(player, original, hand);
                 }
             }
 
