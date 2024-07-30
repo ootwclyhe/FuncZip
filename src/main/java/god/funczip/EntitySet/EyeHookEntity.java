@@ -1,6 +1,7 @@
 package god.funczip.EntitySet;
 
 import god.funczip.EntityRegister;
+import god.funczip.ItemRegster;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.Mth;
@@ -13,7 +14,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.neoforge.common.ItemAbilities;
 
 public class EyeHookEntity extends FishingHook {
     private double tx;
@@ -56,11 +56,11 @@ public class EyeHookEntity extends FishingHook {
         }
     }
 
-    private boolean shouldStopFishing(Player player) {
+    public boolean shouldStopFishing(Player player) {
         ItemStack itemstack = player.getMainHandItem();
         ItemStack itemstack1 = player.getOffhandItem();
-        boolean flag = itemstack.canPerformAction(ItemAbilities.FISHING_ROD_CAST);
-        boolean flag1 = itemstack1.canPerformAction(ItemAbilities.FISHING_ROD_CAST);
+        boolean flag = ItemRegster.EnderEyeRod.get().equals(itemstack.getItem());
+        boolean flag1 = ItemRegster.EnderEyeRod.get().equals(itemstack1.getItem());
         if (!player.isRemoved() && player.isAlive() && (flag || flag1)) {
             return false;
         } else {

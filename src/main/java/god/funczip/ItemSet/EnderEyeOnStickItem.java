@@ -34,6 +34,7 @@ public class EnderEyeOnStickItem extends FishingRodItem {
         ItemStack itemstack = player.getItemInHand(hand);
         if (player.fishing != null) {
             if (!level.isClientSide) {
+                player.fishing.discard();
                 ItemStack original = itemstack.copy();
                 itemstack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
                 if (itemstack.isEmpty()) {
