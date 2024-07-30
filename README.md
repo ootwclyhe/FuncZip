@@ -12,5 +12,5 @@
 
 末影钓竿endereye rod:
 还差合成表未写、换手收杆bug未修
-craftrecipe missing
-swap item bug
+craftrecipe missing；
+swap item bug；
