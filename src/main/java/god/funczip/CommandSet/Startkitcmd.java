@@ -15,7 +15,8 @@ import net.minecraft.server.level.ServerPlayer;
 import java.io.IOException;
 import java.nio.file.Path;
 
-import static god.funczip.Funczip.*;
+import static god.funczip.Funczip.MODID;
+import static god.funczip.Funczip.ctp;
 
 public class Startkitcmd {
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {

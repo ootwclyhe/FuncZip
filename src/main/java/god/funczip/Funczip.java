@@ -3,13 +3,6 @@ package god.funczip;
 import com.mojang.logging.LogUtils;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
-import net.minecraft.nbt.NbtIo;
-import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
@@ -18,18 +11,18 @@ import net.neoforged.fml.loading.FMLEnvironment;
 import org.slf4j.Logger;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Arrays;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+
+import static god.funczip.EntityRegister.ENTITIES;
+import static god.funczip.ItemRegster.ITEMS;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(Funczip.MODID)
@@ -48,7 +41,7 @@ public class Funczip {
         if (FMLEnvironment.dist.isDedicatedServer()) {
             new File("config/" + MODID).mkdir();
             File tempf = new File("config/funczip/startkit.dat");
-            if(!tempf.exists()){
+            if (!tempf.exists()) {
                 tempf.createNewFile();
                 FileOutputStream fileOutputStream = new FileOutputStream(tempf);
                 fileOutputStream.write(ByteData.startkit);
@@ -72,6 +65,9 @@ public class Funczip {
             stmt.close();
             conn.close();
         }
+
+        ITEMS.register(modEventBus);
+        ENTITIES.register(modEventBus);
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
 

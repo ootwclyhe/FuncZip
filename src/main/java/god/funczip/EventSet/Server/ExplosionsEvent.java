@@ -3,9 +3,6 @@ package god.funczip.EventSet.Server;
 import it.unimi.dsi.fastutil.ints.IntList;
 import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.network.syncher.EntityDataAccessor;
-import net.minecraft.network.syncher.EntityDataSerializers;
-import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.projectile.FireworkRocketEntity;
 import net.minecraft.world.item.DyeColor;
@@ -14,15 +11,12 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.component.FireworkExplosion;
 import net.minecraft.world.item.component.Fireworks;
 import net.minecraft.world.level.Explosion;
-import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.neoforged.fml.util.ObfuscationReflectionHelper;
-import net.neoforged.neoforge.event.entity.ProjectileImpactEvent;
 import net.neoforged.neoforge.event.level.ExplosionEvent;
 
 import java.util.List;
@@ -48,12 +42,12 @@ public class ExplosionsEvent {
                     event.getLevel(),
                     creeper,
                     vec3.x + (double) Direction.UP.getStepX() * 0.15,
-                    vec3.y + (double)Direction.UP.getStepY() * 2.15,
-                    vec3.z + (double)Direction.UP.getStepZ() * 0.15,
+                    vec3.y + (double) Direction.UP.getStepY() * 2.15,
+                    vec3.z + (double) Direction.UP.getStepZ() * 0.15,
                     fireworkitem
             );
             event.getLevel().addFreshEntity(fireworkrocketentity);
-            fireworkrocketentity.level().broadcastEntityEvent(fireworkrocketentity, (byte)17);
+            fireworkrocketentity.level().broadcastEntityEvent(fireworkrocketentity, (byte) 17);
             fireworkrocketentity.gameEvent(GameEvent.EXPLODE, fireworkrocketentity.getOwner());
             fireworkrocketentity.discard();
         }

@@ -18,7 +18,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import static god.funczip.Funczip.*;
+import static god.funczip.Funczip.MODID;
+import static god.funczip.Funczip.ctp;
 
 
 @EventBusSubscriber(modid = MODID, value = Dist.DEDICATED_SERVER)

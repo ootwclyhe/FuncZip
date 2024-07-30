@@ -9,3 +9,8 @@
 瓶装经验bottle experience
 
 铁砧修复anvil repair
+
+末影钓竿endereye rod:
+还差合成表未写、换手收杆bug未修
+craftrecipe missing
+swap item bug

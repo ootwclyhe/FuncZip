@@ -29,7 +29,7 @@ import static net.minecraft.world.level.block.Blocks.CHIPPED_ANVIL;
 @EventBusSubscriber(modid = MODID, value = Dist.DEDICATED_SERVER)
 public class Interactsevent {
     @SubscribeEvent(priority = EventPriority.LOW)
-    public static void onintercat1(PlayerInteractEvent.RightClickItem event){
+    public static void onintercat1(PlayerInteractEvent.RightClickItem event) {
         InteractionResultHolder<ItemStack> result = onboxexp((ServerPlayer) event.getEntity(), (ServerLevel) event.getLevel(), event.getHand());
         if (result.getResult().consumesAction()) {
             event.setCanceled(true);
@@ -39,8 +39,10 @@ public class Interactsevent {
 
     public static InteractionResultHolder<ItemStack> onboxexp(ServerPlayer player, ServerLevel world, InteractionHand hand) {
         ItemStack is = player.getItemInHand(hand);
-        if(is.isEmpty() || !is.getItem().equals(Items.GLASS_BOTTLE)) {return InteractionResultHolder.pass(is);}
-        if(player.totalExperience >= 11 && notAimingAtFluid(world, player) ){
+        if (is.isEmpty() || !is.getItem().equals(Items.GLASS_BOTTLE)) {
+            return InteractionResultHolder.pass(is);
+        }
+        if (player.totalExperience >= 11 && notAimingAtFluid(world, player)) {
             player.giveExperiencePoints(-11);
             is.shrink(1);
             player.getInventory().placeItemBackInInventory(new ItemStack(Items.EXPERIENCE_BOTTLE));
