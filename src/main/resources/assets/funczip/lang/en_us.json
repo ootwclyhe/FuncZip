@@ -1,4 +1,6 @@
 {
   "item.funczip.endereye_on_stick": "EnderEye On a Stick",
-  "item.funczip.magicmirror": "Magic Mirror"
+  "item.funczip.magicmirror": "Magic Mirror",
+  "item.funczip.shimmerbucket": "Bottomless Shimmer Bucket",
+  "block.funczip.shimmerblock": "Shimmer"
 }

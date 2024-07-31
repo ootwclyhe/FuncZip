@@ -18,6 +18,9 @@ public class ShimmerBlock extends LiquidBlock {
                 .pushReaction(PushReaction.DESTROY)
                 .noLootTable()
                 .liquid()
-                .sound(SoundType.EMPTY));
+                .sound(SoundType.EMPTY)
+        );
+        this.registerDefaultState(this.stateDefinition.any().setValue(LEVEL, Integer.valueOf(0)));
     }
+
 }
