@@ -21,7 +21,10 @@ import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+import static god.funczip.BlockRegister.BLOCKS;
 import static god.funczip.EntityRegister.ENTITIES;
+import static god.funczip.FluidRegister.FLUIDS;
+import static god.funczip.FluidTypeRegister.FLUIDTYPES;
 import static god.funczip.ItemRegister.ITEMS;
 import static god.funczip.SoundEventRegister.SOUNDEVENTS;
 
@@ -67,8 +70,11 @@ public class Funczip {
             conn.close();
         }
         SOUNDEVENTS.register(modEventBus);
-        ITEMS.register(modEventBus);
+        FLUIDTYPES.register(modEventBus);
+        FLUIDS.register(modEventBus);
+        BLOCKS.register(modEventBus);
         ENTITIES.register(modEventBus);
+        ITEMS.register(modEventBus);
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
 

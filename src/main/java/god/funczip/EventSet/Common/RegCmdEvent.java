@@ -8,8 +8,7 @@ import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import static god.funczip.Funczip.MODID;
 
 @EventBusSubscriber(modid = MODID)
-public class RegisterEvent {
-
+public class RegCmdEvent {
     @SubscribeEvent
     public static void registerCommands(RegisterCommandsEvent e) {
         Startkitcmd.register(e.getDispatcher());
