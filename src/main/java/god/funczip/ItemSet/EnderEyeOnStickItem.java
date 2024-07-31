@@ -12,6 +12,7 @@ import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.FishingRodItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
@@ -24,8 +25,8 @@ import static net.neoforged.neoforge.event.EventHooks.onPlayerDestroyItem;
 public class EnderEyeOnStickItem extends FishingRodItem {
     public HashMap<Level, BlockPos> cacheender = new HashMap();
 
-    public EnderEyeOnStickItem(Properties properties) {
-        super(properties);
+    public EnderEyeOnStickItem() {
+        super(new Item.Properties().durability(64));
 
     }
 
