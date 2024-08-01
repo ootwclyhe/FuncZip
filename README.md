@@ -13,3 +13,6 @@
 末影钓竿endereye rod
 
 泰拉魔镜magic mirror of terraria
+
+泰拉微光shimmer of terraria：
+待优化waiting for optimizing
