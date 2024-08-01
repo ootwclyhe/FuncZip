@@ -17,4 +17,4 @@
 泰拉微光shimmer of terraria：
 待优化waiting for optimizing
 
-待设计：雷击附魔、填充球、农作机器人
+待设计：雷击附魔、填充球、炖菜锅、农作机器人
