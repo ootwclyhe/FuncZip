@@ -1,5 +1,6 @@
 package god.funczip.EventSet.Server;
 
+import god.funczip.CommandSet.Discraftcmd;
 import god.funczip.CustomSet.DisCraftData;
 import god.funczip.Funczip;
 import net.minecraft.nbt.CompoundTag;
@@ -20,8 +21,6 @@ import java.nio.file.Path;
 
 @EventBusSubscriber(modid = Funczip.MODID, value = Dist.DEDICATED_SERVER)
 public class ChatTestEvent {
-    public static CompoundTag mainn = new CompoundTag();
-
     @SubscribeEvent
     public static void onTest(ServerChatEvent event) throws InvocationTargetException, IllegalAccessException, IOException {
         ServerPlayer player = event.getPlayer();
@@ -33,15 +32,15 @@ public class ChatTestEvent {
             }
             CompoundTag ct = DisCraftData.BuildByPlayer(player);
             DisCraftData dcd = DisCraftData.readFromNBT(ct);
-            Funczip.disrecipes.put(ct.getString("type"), dcd);
-            mainn.put(ct.getString("type"), ct);
-            NbtIo.writeCompressed(mainn, Path.of("config/funczip/discraftrecipes.dat"));
+            Discraftcmd.disrecipes.put(ct.getString("type"), dcd);
+            Discraftcmd.RWTag.put(ct.getString("type"), ct);
+            NbtIo.writeCompressed(Discraftcmd.RWTag, Path.of("config/funczip/discraftrecipes.dat"));
             event.setMessage(Component.nullToEmpty("Add: " + player.getItemInHand(InteractionHand.MAIN_HAND).getItem().toString()));
         } else if (event.getRawText().contains("$")) {
-            Funczip.disrecipes.remove(player.getItemInHand(InteractionHand.MAIN_HAND).getItem().toString());
-            mainn.remove(player.getItemInHand(InteractionHand.MAIN_HAND).getItem().toString());
+            Discraftcmd.disrecipes.remove(player.getItemInHand(InteractionHand.MAIN_HAND).getItem().toString());
+            Discraftcmd.RWTag.remove(player.getItemInHand(InteractionHand.MAIN_HAND).getItem().toString());
             event.setMessage(Component.nullToEmpty("Delete: " + player.getItemInHand(InteractionHand.MAIN_HAND).getItem().toString()));
-            NbtIo.writeCompressed(mainn, Path.of("config/funczip/discraftrecipes.dat"));
+            NbtIo.writeCompressed(Discraftcmd.RWTag, Path.of("config/funczip/discraftrecipes.dat"));
         }
     }
 }

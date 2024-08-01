@@ -1,5 +1,6 @@
 package god.funczip.EventSet.Common;
 
+import god.funczip.CommandSet.Discraftcmd;
 import god.funczip.CommandSet.Startkitcmd;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -12,5 +13,6 @@ public class RegCmdEvent {
     @SubscribeEvent
     public static void registerCommands(RegisterCommandsEvent e) {
         Startkitcmd.register(e.getDispatcher());
+        Discraftcmd.register(e.getDispatcher(), e.getBuildContext());
     }
 }

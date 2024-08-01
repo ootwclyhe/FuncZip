@@ -10,6 +10,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.NbtAccounter;
 import net.minecraft.nbt.NbtIo;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 
 import java.io.IOException;
@@ -56,6 +57,7 @@ public class Startkitcmd {
             CompoundTag tag = new CompoundTag();
             tag.put("startkit", p.getInventory().save(new ListTag()));
             NbtIo.writeCompressed(tag, Path.of("config/" + MODID + "/startkit.dat"));
+            p.sendSystemMessage(Component.nullToEmpty("success set startkit!"));
         }
     }
 
@@ -64,6 +66,7 @@ public class Startkitcmd {
             CompoundTag tag = NbtIo.readCompressed(Path.of("config/" + MODID + "/startkit.dat"), NbtAccounter.unlimitedHeap());
             ListTag listTag = tag.getList("startkit", 10);
             p.getInventory().load(listTag);
+            p.sendSystemMessage(Component.nullToEmpty("success apply backpack!"));
         }
     }
 }

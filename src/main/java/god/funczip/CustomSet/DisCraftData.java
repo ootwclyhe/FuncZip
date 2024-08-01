@@ -32,7 +32,7 @@ public class DisCraftData {
         return isEnough(input) ? input.getCount() / needcount : 0;
     }
 
-    public int getDisCount(ItemStack input) {
+    public int getShrinkCount(ItemStack input) {
         return getCopyCount(input) * needcount;
     }
 

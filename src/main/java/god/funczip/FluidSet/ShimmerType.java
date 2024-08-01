@@ -1,8 +1,8 @@
 package god.funczip.FluidSet;
 
+import god.funczip.CommandSet.Discraftcmd;
 import god.funczip.CustomSet.DisCraftData;
 import god.funczip.FluidTypeRegister;
-import god.funczip.Funczip;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.server.level.ServerLevel;
@@ -37,7 +37,7 @@ public class ShimmerType extends FluidType {
         if (entity.level() instanceof ServerLevel level && !entity.getItem().isEmpty() && !entity.isCurrentlyGlowing()) {
             if (vec3.y >= 0D) {
                 entity.setGlowingTag(true);
-                DisCraftData dcd = Funczip.disrecipes.get(entity.getItem().getItem().toString());
+                DisCraftData dcd = Discraftcmd.disrecipes.get(entity.getItem().getItem().toString());
                 if (dcd != null) {
                     ItemStack input = entity.getItem();
                     ListTag lt = dcd.getResult(dcd.checkType(input));
@@ -67,7 +67,7 @@ public class ShimmerType extends FluidType {
                         level.addFreshEntity(itemEntity);
                         if (input.getCount() % dcd.getNeedcount() == 0) {
                             entity.discard();
-                        } else input.shrink(count * dcd.getNeedcount());
+                        } else input.shrink(dcd.getShrinkCount(input));
 
                     }
                 }

@@ -3,8 +3,9 @@ package god.funczip;
 import com.mojang.logging.LogUtils;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import god.funczip.CommandSet.Discraftcmd;
+import god.funczip.CustomSet.ByteData;
 import god.funczip.CustomSet.DisCraftData;
-import god.funczip.EventSet.Server.ChatTestEvent;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtAccounter;
 import net.minecraft.nbt.NbtIo;
@@ -22,7 +23,6 @@ import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -47,7 +47,6 @@ public class Funczip {
             TimeUnit.SECONDS,
             new SynchronousQueue<Runnable>());
     public static HikariDataSource dataSource = null;
-    public static HashMap<String, DisCraftData> disrecipes = new HashMap<>();
 
     public Funczip(IEventBus modEventBus, ModContainer modContainer) throws SQLException, IOException {
         if (FMLEnvironment.dist.isDedicatedServer()) {
@@ -99,8 +98,8 @@ public class Funczip {
         }
         CompoundTag cpdt = NbtIo.readCompressed(Path.of("config/funczip/discraftrecipes.dat"), NbtAccounter.unlimitedHeap());
         cpdt.getAllKeys().forEach(key -> {
-            disrecipes.put(key, DisCraftData.readFromNBT((CompoundTag) cpdt.get(key)));
-            ChatTestEvent.mainn.put(key, (CompoundTag) cpdt.get(key));
+            Discraftcmd.disrecipes.put(key, DisCraftData.readFromNBT((CompoundTag) cpdt.get(key)));
+            Discraftcmd.RWTag.put(key, (CompoundTag) cpdt.get(key));
         });
     }
 }
