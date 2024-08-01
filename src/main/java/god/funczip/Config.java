@@ -26,7 +26,6 @@ public class Config {
     static void onLoad(final ModConfigEvent event) {
         invkit = INVKITC.get();
 
-
         /*logDirtBlock = LOG_DIRT_BLOCK.get();
         magicNumber = MAGIC_NUMBER.get();
         */

@@ -74,7 +74,6 @@ public class Interactsevent {
                 event.setCanceled(true);
             }
         }
-
     }
 
     public static boolean fixanvil(BlockPos pos, BlockState state, ServerLevel level) {

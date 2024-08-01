@@ -19,6 +19,7 @@ public class ShimmerBlock extends LiquidBlock {
                 .noLootTable()
                 .liquid()
                 .sound(SoundType.EMPTY)
+                .lightLevel((l) -> 12)
         );
         this.registerDefaultState(this.stateDefinition.any().setValue(LEVEL, Integer.valueOf(0)));
     }

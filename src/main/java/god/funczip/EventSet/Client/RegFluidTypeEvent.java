@@ -20,7 +20,7 @@ public class RegFluidTypeEvent {
 
             @Override
             public int getTintColor() {
-                return 0xB225E6;
+                return 0xFFC0CB;
             }
 
             @Override
