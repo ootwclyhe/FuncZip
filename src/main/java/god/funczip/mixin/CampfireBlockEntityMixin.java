@@ -45,7 +45,7 @@ public abstract class CampfireBlockEntityMixin extends BlockEntity {
             double d0 = 5;
             int i = 0;
             int j = 85;
-            AABB aabb = (new AABB(pos)).inflate(d0).expandTowards(0.0, level.getHeight(), 0.0);
+            AABB aabb = (new AABB(pos)).inflate(d0).expandTowards(0.0, 0.0, 0.0);
             List<Player> list = level.getEntitiesOfClass(Player.class, aabb);
             Iterator<Player> var11 = list.iterator();
             Player player1;
