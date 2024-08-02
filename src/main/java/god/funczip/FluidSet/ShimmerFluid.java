@@ -40,7 +40,7 @@ public abstract class ShimmerFluid extends FlowingFluid {
 
     @Override
     public Item getBucket() {
-        return ItemRegister.shimmerBucket.get();
+        return ItemRegister.ShimmerBucket.get();
     }
 
     @Override

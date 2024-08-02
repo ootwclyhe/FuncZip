@@ -2,5 +2,7 @@
   "item.funczip.endereye_on_stick": "EnderEye On a Stick",
   "item.funczip.magicmirror": "Magic Mirror",
   "item.funczip.shimmerbucket": "Bottomless Shimmer Bucket",
-  "block.funczip.shimmerblock": "Shimmer"
+  "block.funczip.shimmerblock": "Shimmer",
+  "item.funczip.expberry": "Exp Berry",
+  "block.funczip.expberryblock": "Exp Berry Thicket"
 }

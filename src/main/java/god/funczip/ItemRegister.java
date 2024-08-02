@@ -14,6 +14,6 @@ public class ItemRegister {
 
     public static final Supplier<Item> EnderEyeRod = ITEMS.register("endereye_on_stick", EnderEyeOnStickItem::new);
     public static final Supplier<Item> MagicMirror = ITEMS.register("magicmirror", MagicMirrorItem::new);
-    public static final Supplier<Item> shimmerBucket = ITEMS.register("shimmerbucket", ShimmerBucket::new);
+    public static final Supplier<Item> ShimmerBucket = ITEMS.register("shimmerbucket", ShimmerBucket::new);
     public static final Supplier<Item> ExpBerry = ITEMS.register("expberry", ExpBerryItem::new);
 }
