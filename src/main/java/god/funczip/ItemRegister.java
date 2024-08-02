@@ -1,6 +1,7 @@
 package god.funczip;
 
 import god.funczip.ItemSet.EnderEyeOnStickItem;
+import god.funczip.ItemSet.ExpBerryItem;
 import god.funczip.ItemSet.MagicMirrorItem;
 import god.funczip.ItemSet.ShimmerBucket;
 import net.minecraft.world.item.Item;
@@ -14,4 +15,5 @@ public class ItemRegister {
     public static final Supplier<Item> EnderEyeRod = ITEMS.register("endereye_on_stick", EnderEyeOnStickItem::new);
     public static final Supplier<Item> MagicMirror = ITEMS.register("magicmirror", MagicMirrorItem::new);
     public static final Supplier<Item> shimmerBucket = ITEMS.register("shimmerbucket", ShimmerBucket::new);
+    public static final Supplier<Item> ExpBerry = ITEMS.register("expberry", ExpBerryItem::new);
 }

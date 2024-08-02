@@ -14,6 +14,8 @@
 
 泰拉魔镜magic mirror of terraria
 
+经验浆果exp berry
+
 泰拉微光shimmer of terraria：
 待优化waiting for optimizing
 
