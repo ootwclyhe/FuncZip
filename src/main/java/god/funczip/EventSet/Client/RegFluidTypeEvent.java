@@ -1,6 +1,6 @@
 package god.funczip.EventSet.Client;
 
-import god.funczip.FluidTypeRegister;
+import god.funczip.FluidRegister;
 import god.funczip.Funczip;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.Dist;
@@ -33,6 +33,6 @@ public class RegFluidTypeEvent {
                 return SHIMMER_FLOW;
             }
         };
-        event.registerFluidType(icfte, FluidTypeRegister.shimmerTYPE.get());
+        event.registerFluidType(icfte, FluidRegister.shimmerTYPE.get());
     }
 }

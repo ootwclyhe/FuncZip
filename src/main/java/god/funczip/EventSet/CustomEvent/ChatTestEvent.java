@@ -1,6 +1,6 @@
-package god.funczip.EventSet.Server;
+package god.funczip.EventSet.CustomEvent;
 
-import god.funczip.CommandSet.Discraftcmd;
+import god.funczip.CustomSet.ByteData;
 import god.funczip.CustomSet.DisCraftData;
 import god.funczip.Funczip;
 import net.minecraft.nbt.CompoundTag;
@@ -32,15 +32,15 @@ public class ChatTestEvent {
             }
             CompoundTag ct = DisCraftData.BuildByPlayer(player);
             DisCraftData dcd = DisCraftData.readFromNBT(ct);
-            Discraftcmd.disrecipes.put(ct.getString("type"), dcd);
-            Discraftcmd.RWTag.put(ct.getString("type"), ct);
-            NbtIo.writeCompressed(Discraftcmd.RWTag, Path.of("config/funczip/discraftrecipes.dat"));
+            ByteData.disrecipes.put(ct.getString("type"), dcd);
+            ByteData.RWTag.put(ct.getString("type"), ct);
+            NbtIo.writeCompressed(ByteData.RWTag, Path.of("config/funczip/discraftrecipes.dat"));
             event.setMessage(Component.nullToEmpty("Add: " + player.getItemInHand(InteractionHand.MAIN_HAND).getItem().toString()));
         } else if (event.getRawText().contains("$")) {
-            Discraftcmd.disrecipes.remove(player.getItemInHand(InteractionHand.MAIN_HAND).getItem().toString());
-            Discraftcmd.RWTag.remove(player.getItemInHand(InteractionHand.MAIN_HAND).getItem().toString());
+            ByteData.disrecipes.remove(player.getItemInHand(InteractionHand.MAIN_HAND).getItem().toString());
+            ByteData.RWTag.remove(player.getItemInHand(InteractionHand.MAIN_HAND).getItem().toString());
             event.setMessage(Component.nullToEmpty("Delete: " + player.getItemInHand(InteractionHand.MAIN_HAND).getItem().toString()));
-            NbtIo.writeCompressed(Discraftcmd.RWTag, Path.of("config/funczip/discraftrecipes.dat"));
+            NbtIo.writeCompressed(ByteData.RWTag, Path.of("config/funczip/discraftrecipes.dat"));
         }
     }
 }

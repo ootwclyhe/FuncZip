@@ -1,14 +1,8 @@
 package god.funczip;
 
 import com.mojang.logging.LogUtils;
-import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-import god.funczip.CommandSet.Discraftcmd;
 import god.funczip.CustomSet.ByteData;
-import god.funczip.CustomSet.DisCraftData;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.NbtAccounter;
-import net.minecraft.nbt.NbtIo;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
@@ -16,10 +10,7 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.loading.FMLEnvironment;
 import org.slf4j.Logger;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -31,7 +22,7 @@ import java.util.concurrent.TimeUnit;
 import static god.funczip.BlockRegister.BLOCKS;
 import static god.funczip.EntityRegister.ENTITIES;
 import static god.funczip.FluidRegister.FLUIDS;
-import static god.funczip.FluidTypeRegister.FLUIDTYPES;
+import static god.funczip.FluidRegister.FLUIDTYPES;
 import static god.funczip.ItemRegister.ITEMS;
 import static god.funczip.SoundEventRegister.SOUNDEVENTS;
 
@@ -50,21 +41,8 @@ public class Funczip {
 
     public Funczip(IEventBus modEventBus, ModContainer modContainer) throws SQLException, IOException {
         if (FMLEnvironment.dist.isDedicatedServer()) {
-            new File("config/" + MODID).mkdir();
-            File tempf1 = new File("config/funczip/startkit.dat");
-            if (!tempf1.exists()) {
-                tempf1.createNewFile();
-                FileOutputStream fileOutputStream = new FileOutputStream(tempf1);
-                fileOutputStream.write(ByteData.startkit);
-                fileOutputStream.close();
-            }
-            loaddisrecipe();
-            new SQLiteCreate().create();
-            HikariConfig config = new HikariConfig();
-            config.setDriverClassName("org.sqlite.JDBC");
-            config.setJdbcUrl("jdbc:sqlite:config/" + MODID + "/playerdata.db");
-            config.setMaximumPoolSize(64);
-            dataSource = new HikariDataSource(config);
+            ByteData.initDataFiles();
+            SQLiteCreate.create();
             Connection conn = dataSource.getConnection();
             Statement stmt = conn.createStatement();
             String sql = "SELECT COUNT(*) FROM users";
@@ -86,20 +64,5 @@ public class Funczip {
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
 
-    }
-
-    public void loaddisrecipe() throws IOException {
-        File tempf2 = new File("config/funczip/discraftrecipes.dat");
-        if (!tempf2.exists()) {
-            tempf2.createNewFile();
-            FileOutputStream fileOutputStream = new FileOutputStream(tempf2);
-            fileOutputStream.write(ByteData.discraftrecipes);
-            fileOutputStream.close();
-        }
-        CompoundTag cpdt = NbtIo.readCompressed(Path.of("config/funczip/discraftrecipes.dat"), NbtAccounter.unlimitedHeap());
-        cpdt.getAllKeys().forEach(key -> {
-            Discraftcmd.disrecipes.put(key, DisCraftData.readFromNBT((CompoundTag) cpdt.get(key)));
-            Discraftcmd.RWTag.put(key, (CompoundTag) cpdt.get(key));
-        });
     }
 }

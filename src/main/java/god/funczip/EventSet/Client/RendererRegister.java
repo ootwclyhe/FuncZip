@@ -1,5 +1,8 @@
-package god.funczip;
+package god.funczip.EventSet.Client;
 
+import god.funczip.EntityRegister;
+import god.funczip.Funczip;
+import god.funczip.ItemRegister;
 import god.funczip.RendererSet.EyeHookRenderer;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;

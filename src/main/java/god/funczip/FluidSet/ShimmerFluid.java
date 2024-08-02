@@ -2,7 +2,6 @@ package god.funczip.FluidSet;
 
 import god.funczip.BlockRegister;
 import god.funczip.FluidRegister;
-import god.funczip.FluidTypeRegister;
 import god.funczip.ItemRegister;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -45,7 +44,7 @@ public abstract class ShimmerFluid extends FlowingFluid {
 
     @Override
     public FluidType getFluidType() {
-        return FluidTypeRegister.shimmerTYPE.get();
+        return FluidRegister.shimmerTYPE.get();
     }
 
     @Override

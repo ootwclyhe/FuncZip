@@ -1,5 +1,7 @@
 package god.funczip;
 
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 
@@ -11,7 +13,7 @@ import static god.funczip.Funczip.MODID;
 
 @OnlyIn(Dist.DEDICATED_SERVER)
 public class SQLiteCreate {
-    public void create() {
+    public static void create() {
         String url = ("jdbc:sqlite:config/" + MODID + "/playerdata.db");
         try (Connection conn = DriverManager.getConnection(url)) {
             if (conn != null) {
@@ -26,5 +28,10 @@ public class SQLiteCreate {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        HikariConfig config = new HikariConfig();
+        config.setDriverClassName("org.sqlite.JDBC");
+        config.setJdbcUrl("jdbc:sqlite:config/" + MODID + "/playerdata.db");
+        config.setMaximumPoolSize(64);
+        Funczip.dataSource = new HikariDataSource(config);
     }
 }

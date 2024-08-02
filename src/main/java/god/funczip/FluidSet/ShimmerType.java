@@ -1,8 +1,8 @@
 package god.funczip.FluidSet;
 
-import god.funczip.CommandSet.Discraftcmd;
+import god.funczip.CustomSet.ByteData;
 import god.funczip.CustomSet.DisCraftData;
-import god.funczip.FluidTypeRegister;
+import god.funczip.FluidRegister;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.server.level.ServerLevel;
@@ -37,7 +37,7 @@ public class ShimmerType extends FluidType {
         if (entity.level() instanceof ServerLevel level && !entity.getItem().isEmpty() && !entity.isCurrentlyGlowing()) {
             if (vec3.y >= 0D) {
                 entity.setGlowingTag(true);
-                DisCraftData dcd = Discraftcmd.disrecipes.get(entity.getItem().getItem().toString());
+                DisCraftData dcd = ByteData.disrecipes.get(entity.getItem().getItem().toString());
                 if (dcd != null) {
                     ItemStack input = entity.getItem();
                     ListTag lt = dcd.getResult(dcd.checkType(input));
@@ -56,7 +56,7 @@ public class ShimmerType extends FluidType {
                             @Override
                             public void tick() {
                                 super.tick();
-                                if (tickCount % 20 == 0 && !isInFluidType(FluidTypeRegister.shimmerTYPE.get())) {
+                                if (tickCount % 20 == 0 && !isInFluidType(FluidRegister.shimmerTYPE.get())) {
                                     setDeltaMovement(0, 0, 0);
                                 }
                             }

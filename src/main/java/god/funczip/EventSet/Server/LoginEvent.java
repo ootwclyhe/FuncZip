@@ -1,9 +1,6 @@
 package god.funczip.EventSet.Server;
 
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
-import net.minecraft.nbt.NbtAccounter;
-import net.minecraft.nbt.NbtIo;
+import god.funczip.CustomSet.ByteData;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Inventory;
 import net.neoforged.api.distmarker.Dist;
@@ -12,7 +9,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 
 import java.io.IOException;
-import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -44,9 +40,7 @@ public class LoginEvent {
         ResultSet rs = stmt.executeQuery(sql1);
         if (!rs.next()) {
             Inventory inv = p.getInventory();
-            CompoundTag tag = NbtIo.readCompressed(Path.of("config/" + MODID + "/startkit.dat"), NbtAccounter.unlimitedHeap());
-            ListTag listTag = tag.getList("startkit", 10);
-            inv.load(listTag);
+            inv.load(ByteData.startkit);
             String sql2 = "INSERT INTO users (name, IP) VALUES ('" + p.getName().getString() + "','" + p.connection.getRemoteAddress().toString().substring(1) + "\');";
             stmt.execute(sql2);
         }

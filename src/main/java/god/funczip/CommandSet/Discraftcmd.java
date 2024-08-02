@@ -1,6 +1,7 @@
 package god.funczip.CommandSet;
 
 import com.mojang.brigadier.CommandDispatcher;
+import god.funczip.CustomSet.ByteData;
 import god.funczip.CustomSet.DisCraftData;
 import net.minecraft.commands.CommandBuildContext;
 import net.minecraft.commands.CommandSourceStack;
@@ -16,13 +17,10 @@ import net.minecraft.world.item.Items;
 
 import java.io.IOException;
 import java.nio.file.Path;
-import java.util.HashMap;
 
 import static god.funczip.Funczip.ctp;
 
 public class Discraftcmd {
-    public static CompoundTag RWTag = new CompoundTag();
-    public static HashMap<String, DisCraftData> disrecipes = new HashMap<>();
 
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher, CommandBuildContext context) {
         dispatcher.register(
@@ -67,12 +65,12 @@ public class Discraftcmd {
     }
 
     private static void savediscraftrecipe() throws IOException {
-        NbtIo.writeCompressed(RWTag, Path.of("config/funczip/discraftrecipes.dat"));
+        NbtIo.writeCompressed(ByteData.RWTag, Path.of("config/funczip/discraftrecipes.dat"));
     }
 
     private static void deldiscraftrecipe(Item type) {
-        disrecipes.remove(type.toString());
-        RWTag.remove(type.toString());
+        ByteData.disrecipes.remove(type.toString());
+        ByteData.RWTag.remove(type.toString());
     }
 
     private static void setdiscraftrecipe(ServerPlayer player) {
@@ -82,7 +80,7 @@ public class Discraftcmd {
         }
         CompoundTag tag = DisCraftData.BuildByPlayer(player);
         DisCraftData dcd = DisCraftData.readFromNBT(tag);
-        disrecipes.put(tag.getString("type"), dcd);
-        RWTag.put(tag.getString("type"), tag);
+        ByteData.disrecipes.put(tag.getString("type"), dcd);
+        ByteData.RWTag.put(tag.getString("type"), tag);
     }
 }
