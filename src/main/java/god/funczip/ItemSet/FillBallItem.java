@@ -41,7 +41,7 @@ public class FillBallItem extends Item implements ProjectileItem {
         );
         if (!level.isClientSide) {
             FillBall fillball = new FillBall(level, player);
-            fillball.setItem(itemstack);
+            fillball.setItem(new ItemStack(Items.WHITE_WOOL));
             fillball.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1.5F, 1.0F);
             level.addFreshEntity(fillball);
         }

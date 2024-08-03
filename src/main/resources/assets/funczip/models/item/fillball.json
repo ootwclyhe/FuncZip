@@ -6,8 +6,8 @@
 	],
 	"textures": {
 		"1": "funczip:item/fillball",
-		"2": "minecraft:block/oak_planks",
-		"3": "minecraft:block/oak_planks2",
+		"2": "minecraft:block/ancient_debris_top",
+		"3": "minecraft:block/ancient_debris_side",
 		"particle": "funczip:item/fillball"
 	},
 	"elements": [
