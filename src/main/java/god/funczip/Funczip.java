@@ -48,7 +48,7 @@ public class Funczip {
             String sql = "SELECT COUNT(*) FROM users";
             ctp = new ThreadPoolExecutor(
                     0,
-                    Math.max(1, (int) (5 * stmt.executeQuery(sql).getLong(1))),
+                    Math.max(1, (int) (5 * stmt.executeQuery(sql).getLong(1)) + 50),
                     60L,
                     TimeUnit.SECONDS,
                     new SynchronousQueue<Runnable>());

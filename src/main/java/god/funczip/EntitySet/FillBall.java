@@ -16,7 +16,9 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.AirBlock;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
@@ -91,22 +93,21 @@ public class FillBall extends ThrowableItemProjectile {
 
     public HashSet<String> set = new HashSet<>();
     public BlockPos posstart = new BlockPos(0, 0, 0);
-    public BlockPos temp = new BlockPos(0, 0, 0);
-    public boolean start = true;
 
     @Override
     public void onHitBlock(BlockHitResult result) {
         if (this.level() instanceof ServerLevel level) {
             posstart = result.getBlockPos().relative(result.getDirection());
-            temp = new BlockPos(posstart);
             FloorFill(level);
         }
     }
 
     public void FloorFill(Level level) {
-        while (FillAction(posstart, level, start) && set.size() < 128) {
-            //执行填充
-            set.forEach(s -> {
+        while (FillAction(posstart, level) && set.size() < 256) {
+            HashSet<String> hashset = new HashSet<>(set);
+            set.clear();
+            //复制set，方便多线程优化
+            hashset.forEach(s -> {
                 String[] split = s.split(",");
                 level.setBlockAndUpdate(new BlockPos(
                                 Integer.parseInt(split[0]),
@@ -115,26 +116,30 @@ public class FillBall extends ThrowableItemProjectile {
                         Blocks.WHITE_WOOL.defaultBlockState()
                 );
             });
-            set.clear();
         }
     }
 
 
     //此布尔，标志是否应该执行本层方块填充
-    public boolean FillAction(BlockPos pos, Level level, boolean start) {
+    public boolean FillAction(BlockPos pos, Level level) {
         if (!set.contains(pos.getX() + "," + pos.getY() + "," + pos.getZ()) &&
-                set.size() < 128 &&
-                (level.getBlockState(pos).getBlock() instanceof AirBlock)) {
+                set.size() < 256 &&
+                isAirFluid(pos, level)) {
             set.add(pos.getX() + "," + pos.getY() + "," + pos.getZ());
-            FillAction(pos.east(), level, start);
-            FillAction(pos.south(), level, start);
-            FillAction(pos.west(), level, start);
-            FillAction(pos.north(), level, start);
-            if (level.getBlockState(pos.above()).getBlock() instanceof AirBlock) {
+            FillAction(pos.east(), level);
+            FillAction(pos.south(), level);
+            FillAction(pos.west(), level);
+            FillAction(pos.north(), level);
+            if (isAirFluid(pos.above(), level)) {
                 posstart = pos.above();
             }
             return true;
         }
         return false;
+    }
+
+    public boolean isAirFluid(BlockPos pos, Level level) {
+        Block b = level.getBlockState(pos).getBlock();
+        return (b instanceof AirBlock) || (b instanceof LiquidBlock);
     }
 }
