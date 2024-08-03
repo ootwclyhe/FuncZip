@@ -13,6 +13,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ProjectileItem;
 import net.minecraft.world.level.Level;
 
@@ -52,7 +53,7 @@ public class FillBallItem extends Item implements ProjectileItem {
     @Override
     public Projectile asProjectile(Level level, Position pos, ItemStack stack, Direction direction) {
         FillBall fillball = new FillBall(level, BlockPos.containing(pos));
-        fillball.setItem(stack);
+        fillball.setItem(new ItemStack(Items.WHITE_WOOL));
         return fillball;
     }
 }
