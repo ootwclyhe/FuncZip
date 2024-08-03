@@ -1,9 +1,6 @@
 package god.funczip;
 
-import god.funczip.ItemSet.EnderEyeOnStickItem;
-import god.funczip.ItemSet.ExpBerryItem;
-import god.funczip.ItemSet.MagicMirrorItem;
-import god.funczip.ItemSet.ShimmerBucket;
+import god.funczip.ItemSet.*;
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -16,4 +13,5 @@ public class ItemRegister {
     public static final Supplier<Item> MagicMirror = ITEMS.register("magicmirror", MagicMirrorItem::new);
     public static final Supplier<Item> ShimmerBucket = ITEMS.register("shimmerbucket", ShimmerBucket::new);
     public static final Supplier<Item> ExpBerry = ITEMS.register("expberry", ExpBerryItem::new);
+    public static final Supplier<Item> FillBall = ITEMS.register("fillball", FillBallItem::new);
 }

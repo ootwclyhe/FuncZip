@@ -4,6 +4,7 @@ import god.funczip.EntityRegister;
 import god.funczip.Funczip;
 import god.funczip.ItemRegister;
 import god.funczip.RendererSet.EyeHookRenderer;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
@@ -20,6 +21,7 @@ public class RendererRegister {
     @SubscribeEvent
     public static void registerEntityRenders(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(EntityRegister.eyeHookEntity.get(), EyeHookRenderer::new);
+        event.registerEntityRenderer(EntityRegister.fillballEntity.get(), ThrownItemRenderer::new);
         ItemProperties.register(ItemRegister.EnderEyeRod.get(), ResourceLocation.withDefaultNamespace("cast"), (p_174585_, p_174586_, p_174587_, p_174588_) -> {
             if (p_174587_ == null) {
                 return 0.0F;
