@@ -4,6 +4,10 @@ import god.funczip.EntityRegister;
 import god.funczip.Funczip;
 import god.funczip.ItemRegister;
 import god.funczip.RendererSet.EyeHookRenderer;
+import god.funczip.RendererSet.FunczipItemRender;
+import god.funczip.RendererSet.Models.FillBallModel;
+import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
@@ -14,6 +18,8 @@ import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
+import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 
 @OnlyIn(Dist.CLIENT)
 @EventBusSubscriber(modid = Funczip.MODID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
@@ -35,5 +41,23 @@ public class RendererRegister {
                 return (flag || flag1) && p_174587_ instanceof Player && ((Player)p_174587_).fishing != null ? 1.0F : 0.0F;
             }
         });
+    }
+
+    @SubscribeEvent
+    public static void registerItemRenders(RegisterClientExtensionsEvent event) {
+        IClientItemExtensions iClientItemExtensions = new IClientItemExtensions() {
+            @Override
+            public BlockEntityWithoutLevelRenderer getCustomRenderer() {
+                return new FunczipItemRender();
+            }
+        };
+        event.registerItem(iClientItemExtensions, ItemRegister.FillBall.get());
+    }
+
+    public static ModelLayerLocation fillballlocation = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(Funczip.MODID, "fillballmodel"), "main");
+
+    @SubscribeEvent
+    public static void registerRenderers(EntityRenderersEvent.RegisterLayerDefinitions event) {
+        event.registerLayerDefinition(fillballlocation, FillBallModel::createBodyLayer);
     }
 }

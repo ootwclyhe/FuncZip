@@ -19,6 +19,7 @@ import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+import static god.funczip.BlockEntityRegister.BLOCKENTITIES;
 import static god.funczip.BlockRegister.BLOCKS;
 import static god.funczip.EntityRegister.ENTITIES;
 import static god.funczip.FluidRegister.FLUIDS;
@@ -55,10 +56,12 @@ public class Funczip {
             stmt.close();
             conn.close();
         }
+        //PAINTINGS.register(modEventBus);
         SOUNDEVENTS.register(modEventBus);
         FLUIDTYPES.register(modEventBus);
         FLUIDS.register(modEventBus);
         BLOCKS.register(modEventBus);
+        BLOCKENTITIES.register(modEventBus);
         ENTITIES.register(modEventBus);
         ITEMS.register(modEventBus);
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us

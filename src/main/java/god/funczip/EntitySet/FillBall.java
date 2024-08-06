@@ -93,6 +93,7 @@ public class FillBall extends ThrowableItemProjectile {
 
     public HashSet<String> set = new HashSet<>();
     public BlockPos posstart = new BlockPos(0, 0, 0);
+    public int max = 0;
 
     @Override
     public void onHitBlock(BlockHitResult result) {
@@ -103,9 +104,10 @@ public class FillBall extends ThrowableItemProjectile {
     }
 
     public void FloorFill(Level level) {
-        while (FillAction(posstart, level) && set.size() < 256) {
+        while (FillAction(posstart, level) && set.size() < 256 && max >= set.size()) {
             HashSet<String> hashset = new HashSet<>(set);
             set.clear();
+            max = max - hashset.size();
             //复制set，方便多线程优化
             hashset.forEach(s -> {
                 String[] split = s.split(",");
@@ -136,6 +138,10 @@ public class FillBall extends ThrowableItemProjectile {
             return true;
         }
         return false;
+    }
+
+    public void setMax(int max) {
+        this.max = max;
     }
 
     public boolean isAirFluid(BlockPos pos, Level level) {

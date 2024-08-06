@@ -14,4 +14,10 @@ public class ItemRegister {
     public static final Supplier<Item> ShimmerBucket = ITEMS.register("shimmerbucket", ShimmerBucket::new);
     public static final Supplier<Item> ExpBerry = ITEMS.register("expberry", ExpBerryItem::new);
     public static final Supplier<Item> FillBall = ITEMS.register("fillball", FillBallItem::new);
+    public static final Supplier<Item> BaiduItem = ITEMS.register("baiduitem", BaiduItem::new);
+    public static final Supplier<Item> FillerItem = ITEMS.register("filleritem", FillerItem::new);
+
+
+
+
 }

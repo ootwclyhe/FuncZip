@@ -1,6 +1,8 @@
 package god.funczip;
 
 import god.funczip.BlockSet.ExpBerryBlock;
+import god.funczip.BlockSet.FillBallBlock;
+import god.funczip.BlockSet.FillerBlock;
 import god.funczip.BlockSet.ShimmerBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -11,5 +13,6 @@ public class BlockRegister {
 
     public static final Supplier<ShimmerBlock> shimmerBlock = BLOCKS.register("shimmerblock", ShimmerBlock::new);
     public static final Supplier<ExpBerryBlock> expberryBlock = BLOCKS.register("expberryblock", ExpBerryBlock::new);
-
+    public static final Supplier<FillBallBlock> fillballBlock = BLOCKS.register("fillballblock", FillBallBlock::new);
+    public static final Supplier<FillerBlock> fillerBlock = BLOCKS.register("fillerblock", () -> new FillerBlock());
 }

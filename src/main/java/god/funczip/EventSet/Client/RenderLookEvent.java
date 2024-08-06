@@ -15,6 +15,8 @@ public class RenderLookEvent {
     public static void onClientSetUpEvent(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
             ItemBlockRenderTypes.setRenderLayer(BlockRegister.expberryBlock.get(), RenderType.CUTOUT);
+            ItemBlockRenderTypes.setRenderLayer(BlockRegister.fillballBlock.get(), RenderType.CUTOUT);
+            ItemBlockRenderTypes.setRenderLayer(BlockRegister.fillerBlock.get(), RenderType.CUTOUT);
         });
     }
 }
