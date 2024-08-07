@@ -15,9 +15,11 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import org.jetbrains.annotations.Nullable;
 
-public class FillerBlockEntity extends BaseContainerBlockEntity implements WorldlyContainer {
+public class FillerBlockEntity extends BaseContainerBlockEntity implements WorldlyContainer, IFluidHandler {
     private NonNullList<ItemStack> items = NonNullList.withSize(4, ItemStack.EMPTY);
 
     public FillerBlockEntity(BlockPos pos, BlockState blockState) {
@@ -42,7 +44,7 @@ public class FillerBlockEntity extends BaseContainerBlockEntity implements World
 
     @Override
     public Component getDefaultName() {
-        return Component.translatable("填充机");
+        return Component.translatable("menu.filler");
     }
 
     @Override
@@ -76,5 +78,40 @@ public class FillerBlockEntity extends BaseContainerBlockEntity implements World
     public void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.saveAdditional(tag, registries);
         ContainerHelper.saveAllItems(tag, this.items, registries);
+    }
+
+    @Override
+    public int getTanks() {
+        return 0;
+    }
+
+    @Override
+    public FluidStack getFluidInTank(int tank) {
+        return null;
+    }
+
+    @Override
+    public int getTankCapacity(int tank) {
+        return 0;
+    }
+
+    @Override
+    public boolean isFluidValid(int tank, FluidStack stack) {
+        return false;
+    }
+
+    @Override
+    public int fill(FluidStack resource, FluidAction action) {
+        return 0;
+    }
+
+    @Override
+    public FluidStack drain(FluidStack resource, FluidAction action) {
+        return null;
+    }
+
+    @Override
+    public FluidStack drain(int maxDrain, FluidAction action) {
+        return null;
     }
 }

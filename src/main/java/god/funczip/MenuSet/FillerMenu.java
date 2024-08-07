@@ -20,6 +20,7 @@ public class FillerMenu extends AbstractContainerMenu {
         checkContainerSize(fillerblockentity, 4);
         this.fillerblockentity = fillerblockentity;
 
+
     }
 
     private final Container fillerblockentity;
