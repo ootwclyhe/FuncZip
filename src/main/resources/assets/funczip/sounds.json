@@ -1,0 +1,12 @@
+{
+  "magicmirrorsound": {
+    "subtitle": "泰拉传送",
+    "sounds": [
+      {
+        "name": "funczip:magicmirrorsound",
+        "volume": 1.0,
+        "pitch": 1.0
+      }
+    ]
+  }
+}

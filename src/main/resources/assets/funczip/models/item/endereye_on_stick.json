@@ -1,0 +1,14 @@
+{
+  "parent": "item/handheld_rod",
+  "textures": {
+    "layer0": "funczip:item/endereye_on_stick"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "cast": 1
+      },
+      "model": "funczip:item/endereye_on_stick_cast"
+    }
+  ]
+}

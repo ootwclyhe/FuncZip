@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "funczip:block/fillerblock",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "funczip:block/fillerblock",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "funczip:block/fillerblock",
+      "y": 0
+    },
+    "facing=west": {
+      "model": "funczip:block/fillerblock",
+      "y": 90
+    }
+  }
+}

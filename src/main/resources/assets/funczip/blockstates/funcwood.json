@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "funczip:block/funcwood_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "funczip:block/funcwood"
+    },
+    "axis=z": {
+      "model": "funczip:block/funcwood_horizontal",
+      "x": 90
+    }
+  }
+}

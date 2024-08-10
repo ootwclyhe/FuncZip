@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "funczip:block/funcwood_top",
+    "side": "funczip:block/funcwood"
+  }
+}

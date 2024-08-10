@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "god.funczip.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "funczip.refmap.json",
+  "mixins": [
+    "CampfireBlockEntityMixin"
+  ],
+  "client": [
+    "FishingHookmixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

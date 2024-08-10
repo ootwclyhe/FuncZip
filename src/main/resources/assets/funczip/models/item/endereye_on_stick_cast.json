@@ -1,0 +1,6 @@
+{
+    "parent": "funczip:item/endereye_on_stick",
+    "textures": {
+        "layer0": "item/fishing_rod_cast"
+    }
+}
