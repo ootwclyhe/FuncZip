@@ -1,31 +1,27 @@
 package god.funczip.EventSet.CustomEvent;
 
-import god.funczip.CustomSet.ByteData;
-import god.funczip.CustomSet.DisCraftData;
 import god.funczip.Funczip;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.NbtIo;
-import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.item.Items;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.ServerChatEvent;
 
+import javax.management.*;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.lang.management.ManagementFactory;
 import java.lang.reflect.InvocationTargetException;
-import java.nio.file.Path;
 
 @EventBusSubscriber(modid = Funczip.MODID, value = Dist.DEDICATED_SERVER)
 public class ChatTestEvent {
     @SubscribeEvent
-    public static void onTest(ServerChatEvent event) throws InvocationTargetException, IllegalAccessException, IOException {
+    public static void onTest(ServerChatEvent event) throws InvocationTargetException, IllegalAccessException, IOException, ReflectionException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, MalformedObjectNameException {
         ServerPlayer player = event.getPlayer();
         ServerLevel level = (ServerLevel) player.level();
-        if (event.getRawText().contains("#")) {
+        /*if (event.getRawText().contains("#")) {
             if (Items.AIR.equals(player.getItemInHand(InteractionHand.MAIN_HAND).getItem())) {
                 event.setMessage(Component.nullToEmpty("I'm an idiot."));
                 return;
@@ -41,6 +37,45 @@ public class ChatTestEvent {
             ByteData.RWTag.remove(player.getItemInHand(InteractionHand.MAIN_HAND).getItem().toString());
             event.setMessage(Component.nullToEmpty("Delete: " + player.getItemInHand(InteractionHand.MAIN_HAND).getItem().toString()));
             NbtIo.writeCompressed(ByteData.RWTag, Path.of("config/funczip/discraftrecipes.dat"));
+        }*/if(event.getRawText().contains("666qaqa")) {
+            MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
+            ObjectName operatingSystemObjectName = new ObjectName("java.lang:type=OperatingSystem");
+            int cpuCount = (int) mbs.getAttribute(operatingSystemObjectName, "AvailableProcessors");
+            double systemLoadAverage = (double) mbs.getAttribute(operatingSystemObjectName, "SystemLoadAverage");
+            try {
+                ProcessBuilder pb = new ProcessBuilder("lscpu");
+                Process p = pb.start();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    if (line.startsWith("Model name:")) {
+                        System.out.println(line.split(":")[1].trim());
+                    }
+                }
+                reader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                ProcessBuilder processBuilder = new ProcessBuilder("wmic", "cpu", "get", "CurrentClockSpeed");
+                Process process = processBuilder.start();
+
+                BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+                String line;
+                while((line = reader.readLine()) != null) {
+                    // 解析输出结果，获取CPU频率
+                    if (line.matches("\\d+")) {
+                        int clockSpeed = Integer.parseInt(line.trim());
+                        System.out.println("Current CPU Clock Speed: " + clockSpeed + " MHz");
+                    }
+                }
+
+                reader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            System.out.println("CPUcore" + cpuCount);
+            System.out.println("load" + systemLoadAverage);
         }
     }
 }
