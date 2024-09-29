@@ -19,6 +19,7 @@ public class ItemRegister {
     public static final Supplier<Item> FillerItem = ITEMS.register("filleritem", FillerItem::new);
     public static final Supplier<Item> FuncWoodItem = ITEMS.register("funcwooditem", FuncWoodItem::new);
     public static final Supplier<Item> FuncleavesItem = ITEMS.register("funclavesitem", FuncLeavesItem::new);
+    public static final Supplier<Item> RenRuGu = ITEMS.register("renrugu", RenRuGu::new);
 
 
 

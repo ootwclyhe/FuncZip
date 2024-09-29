@@ -9,10 +9,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.ServerChatEvent;
 
 import javax.management.*;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.lang.management.ManagementFactory;
 import java.lang.reflect.InvocationTargetException;
 
 @EventBusSubscriber(modid = Funczip.MODID, value = Dist.DEDICATED_SERVER)
@@ -37,7 +34,7 @@ public class ChatTestEvent {
             ByteData.RWTag.remove(player.getItemInHand(InteractionHand.MAIN_HAND).getItem().toString());
             event.setMessage(Component.nullToEmpty("Delete: " + player.getItemInHand(InteractionHand.MAIN_HAND).getItem().toString()));
             NbtIo.writeCompressed(ByteData.RWTag, Path.of("config/funczip/discraftrecipes.dat"));
-        }*/if(event.getRawText().contains("666qaqa")) {
+        }*//*if(event.getRawText().contains("666qaqa")) {
             MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
             ObjectName operatingSystemObjectName = new ObjectName("java.lang:type=OperatingSystem");
             int cpuCount = (int) mbs.getAttribute(operatingSystemObjectName, "AvailableProcessors");
@@ -76,6 +73,6 @@ public class ChatTestEvent {
             }
             System.out.println("CPUcore" + cpuCount);
             System.out.println("load" + systemLoadAverage);
-        }
+        }*/
     }
 }
