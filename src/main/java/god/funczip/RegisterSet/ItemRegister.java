@@ -20,7 +20,7 @@ public class ItemRegister {
     public static final Supplier<Item> FuncWoodItem = ITEMS.register("funcwooditem", FuncWoodItem::new);
     public static final Supplier<Item> FuncleavesItem = ITEMS.register("funclavesitem", FuncLeavesItem::new);
     public static final Supplier<Item> RenRuGu = ITEMS.register("renrugu", RenRuGu::new);
-
+    public static final Supplier<Item> Decapitrix = ITEMS.register("decapitrix", Decapitrix::new);
 
 
 
