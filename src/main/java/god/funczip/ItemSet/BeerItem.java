@@ -1,6 +1,6 @@
 package god.funczip.ItemSet;
-import net.minecraft.server.level.ServerPlayer;
-import god.funczip.RegisterSet.BlockRegister;
+
+
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -9,9 +9,6 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.neoforged.neoforge.client.event.RenderHighlightEvent;
-import javax.swing.text.html.parser.Entity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.nbt.CompoundTag;
 
 public class BeerItem extends Item {
