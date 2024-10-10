@@ -1,11 +1,17 @@
 package god.funczip.EventSet.Server;
 
+import god.funczip.ItemSet.Decapitrix;
 import god.funczip.RegisterSet.ItemRegister;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDropsEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import top.theillusivec4.curios.api.CuriosApi;
@@ -15,7 +21,7 @@ import static god.funczip.Funczip.MODID;
 @EventBusSubscriber(modid = MODID, value = Dist.DEDICATED_SERVER)
 public class DeathEvent {
     @SubscribeEvent
-    public static void onDeathEvent(LivingDropsEvent event) {
+    public static void onLivingDrops(LivingDropsEvent event) {
         if(event.getEntity() instanceof ServerPlayer player) {
             CuriosApi.getCuriosInventory(player).ifPresent(curiosInventory -> {
                 if(curiosInventory.isEquipped(ItemRegister.RenRuGu.get())){
@@ -30,5 +36,15 @@ public class DeathEvent {
     @SubscribeEvent
     public static void onRespawnEvent(PlayerEvent.PlayerRespawnEvent event) {
         event.isEndConquered();
+    }
+
+    @SubscribeEvent
+    public static void onLivingDeath(LivingDeathEvent event) {
+        ItemStack is = event.getSource().getWeaponItem();
+        if(is!=null && is.getItem() instanceof Decapitrix){
+            LivingEntity le = event.getEntity();
+            Level l = le.level();
+            l.addFreshEntity(new ItemEntity(l , le.getX(), le.getY()+0.5F, le.getZ(), Decapitrix.getHeadItem(le)));
+        }
     }
 }
