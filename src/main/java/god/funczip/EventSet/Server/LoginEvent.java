@@ -1,6 +1,9 @@
 package god.funczip.EventSet.Server;
 
 import god.funczip.CustomSet.ByteData;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.NbtIo;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Inventory;
 import net.neoforged.api.distmarker.Dist;
@@ -9,6 +12,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 
 import java.io.IOException;
+import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -30,7 +34,6 @@ public class LoginEvent {
                 throw new RuntimeException(e);
             }
         });
-
     }
 
     public static void startkit(ServerPlayer p) throws SQLException, IOException {
@@ -43,8 +46,21 @@ public class LoginEvent {
             inv.load(ByteData.startkit);
             String sql2 = "INSERT INTO users (name, IP) VALUES ('" + p.getName().getString() + "','" + p.connection.getRemoteAddress().toString().substring(1) + "\');";
             stmt.execute(sql2);
+            initrenrugu(p);
         }
         stmt.close();
         conn.close();
+    }
+
+    public static void initrenrugu(ServerPlayer p) {
+            ListTag lt = new ListTag();
+            CompoundTag ct = new CompoundTag();
+            ct.put("inv", lt);
+            ct.putBoolean("if", false);
+            try {
+                NbtIo.write(ct, Path.of("config/funczip/renrugu/" + p.getUUID() + ".dat"));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
     }
 }
