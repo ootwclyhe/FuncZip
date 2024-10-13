@@ -19,9 +19,8 @@ public class FootCuffItem extends ArmorItem {
 
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int inventorySlot, boolean isCurrentItem) {
-
-            Player player = (Player) entity;
-
+        if (entity instanceof Player player) {
+            player = (Player) entity;
 
             if (this.popTime > 0) {
                 this.popTime--;
@@ -35,5 +34,6 @@ public class FootCuffItem extends ArmorItem {
                 }
             }
 
+        }
     }
 }
