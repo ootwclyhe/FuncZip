@@ -23,5 +23,5 @@ public class ItemRegister {
     public static final Supplier<Item> Decapitrix = ITEMS.register("decapitrix", Decapitrix::new);
 
     public static final Supplier<Item> BeerItem = ITEMS.register("beeritem", BeerItem::new);
-
+    public static final Supplier<Item> FootCuff = ITEMS.register("footcuff", FootCuffItem::new);
 }

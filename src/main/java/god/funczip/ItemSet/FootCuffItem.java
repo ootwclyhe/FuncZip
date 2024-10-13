@@ -1,26 +1,38 @@
 package god.funczip.ItemSet;
 
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.*;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlotGroup;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ArmorMaterials;
+import net.minecraft.world.item.component.ItemAttributeModifiers;
+
+import static net.minecraft.world.entity.ai.attributes.Attributes.MOVEMENT_SPEED;
+
 
 public class FootCuffItem extends ArmorItem {
 
-    private int count;
     private int popTime;
 
-    public FootCuffItem(ArmorMaterial material, Properties properties, int count) {
-        super(ArmorMaterials.IRON, ArmorItem.Type.BOOTS, properties);
-        this.count = count;
+    public FootCuffItem() {
+        super(ArmorMaterials.IRON, ArmorItem.Type.BOOTS, new Properties().attributes(createAttributes()));
+    }
+    public static ItemAttributeModifiers createAttributes() {
+        return ItemAttributeModifiers.builder()
+                .add(
+                        MOVEMENT_SPEED,
+                        new AttributeModifier(
+                                ResourceLocation.withDefaultNamespace("effect.speed"), -0.099F, AttributeModifier.Operation.ADD_MULTIPLIED_BASE
+                        ),
+                        EquipmentSlotGroup.FEET
+                )
+                .build();
     }
 
-    @Override
+
+    /*@Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int inventorySlot, boolean isCurrentItem) {
         if (entity instanceof Player player) {
-            player = (Player) entity;
 
             if (this.popTime > 0) {
                 this.popTime--;
@@ -35,5 +47,5 @@ public class FootCuffItem extends ArmorItem {
             }
 
         }
-    }
+    }*/
 }
