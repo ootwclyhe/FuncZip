@@ -27,8 +27,8 @@ public class ItemRegister {
     public static final Supplier<Item> FootCuff = ITEMS.register("footcuff", FootCuffItem::new);
 
     public static final Supplier<Item> CopperCoin = ITEMS.register("coppercoin", CopperCoin::new);
-    public static final Supplier<Item> SilverCoin = ITEMS.register("silverCoin", SilverCoin::new);
-    public static final Supplier<Item> GoldCoin = ITEMS.register("goldCoin", GoldCoin::new);
-    public static final Supplier<Item> DiamondCoin = ITEMS.register("diamondCoin", DiamondCoin::new);
-    public static final Supplier<Item> EmeraldCoin = ITEMS.register("emeraldCoin", EmeraldCoin::new);
+    public static final Supplier<Item> SilverCoin = ITEMS.register("silvercoin", SilverCoin::new);
+    public static final Supplier<Item> GoldCoin = ITEMS.register("goldcoin", GoldCoin::new);
+    public static final Supplier<Item> DiamondCoin = ITEMS.register("diamondcoin", DiamondCoin::new);
+    public static final Supplier<Item> EmeraldCoin = ITEMS.register("emeraldcoin", EmeraldCoin::new);
 }
