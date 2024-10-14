@@ -24,13 +24,14 @@ public class FishEvent {
         ctp.execute(() -> {
             if (mc != null) {
                 InteractionHand hand = p.getMainHandItem().getItem() instanceof FishingRodItem ? InteractionHand.MAIN_HAND : InteractionHand.OFF_HAND;
-                mc.useItem(p, hand);
                 try {
-                    Thread.sleep(5L);
+                    Thread.sleep(20L);
+                    mc.useItem(p, hand);
+                    Thread.sleep(200L);
+                    mc.useItem(p, hand);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
-                mc.useItem(p, hand);
             }
         });
     }

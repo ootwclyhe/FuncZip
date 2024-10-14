@@ -2,6 +2,7 @@ package god.funczip.RegisterSet;
 
 import god.funczip.Funczip;
 import god.funczip.ItemSet.*;
+import god.funczip.ItemSet.Coin.*;
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -24,4 +25,10 @@ public class ItemRegister {
 
     public static final Supplier<Item> BeerItem = ITEMS.register("beeritem", BeerItem::new);
     public static final Supplier<Item> FootCuff = ITEMS.register("footcuff", FootCuffItem::new);
+
+    public static final Supplier<Item> CopperCoin = ITEMS.register("coppercoin", CopperCoin::new);
+    public static final Supplier<Item> SilverCoin = ITEMS.register("silverCoin", SilverCoin::new);
+    public static final Supplier<Item> GoldCoin = ITEMS.register("goldCoin", GoldCoin::new);
+    public static final Supplier<Item> DiamondCoin = ITEMS.register("diamondCoin", DiamondCoin::new);
+    public static final Supplier<Item> EmeraldCoin = ITEMS.register("emeraldCoin", EmeraldCoin::new);
 }
