@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 public abstract class CoinBase extends Item {
     public CoinBase(Properties properties) {
-        super(properties.stacksTo(16));
+        super(properties.stacksTo(64));
     }
     public abstract Item getNext();
     public abstract Item getPrev();
