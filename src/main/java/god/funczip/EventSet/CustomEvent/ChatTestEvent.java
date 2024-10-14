@@ -1,8 +1,12 @@
 package god.funczip.EventSet.CustomEvent;
 
 import god.funczip.Funczip;
+import god.funczip.ItemSet.Coin.CoinBase;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.ChestBlock;
+import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -19,6 +23,13 @@ public class ChatTestEvent {
     public static void onTest(ServerChatEvent event) throws InvocationTargetException, IllegalAccessException, IOException, ReflectionException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, MalformedObjectNameException {
         ServerPlayer player = event.getPlayer();
         ServerLevel level = (ServerLevel) player.level();
+        if(event.getRawText().contains("wbbb")){
+            if(player.getBlockStateOn().getBlock() instanceof ChestBlock){
+                ChestBlockEntity cbe = (ChestBlockEntity) level.getBlockEntity(player.getOnPos());
+                ItemStack[] isl = {null, cbe.getItem(0), cbe.getItem(1), cbe.getItem(2), cbe.getItem(3), cbe.getItem(4)};
+                CoinBase.TryUseCoin(isl, player);
+            }
+        }
         /*if (event.getRawText().contains("#")) {
             if (Items.AIR.equals(player.getItemInHand(InteractionHand.MAIN_HAND).getItem())) {
                 event.setMessage(Component.nullToEmpty("I'm an idiot."));

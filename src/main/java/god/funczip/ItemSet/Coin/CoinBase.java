@@ -25,7 +25,7 @@ public abstract class CoinBase extends Item {
         }
     }
 
-    public boolean TryUseCoin(ItemStack[] use, ServerPlayer player){
+    public static boolean TryUseCoin(ItemStack[] use, ServerPlayer player){
         ItemStack[] has = new ItemStack[6];
         player.getInventory().items.forEach(itemStack -> {
             if(itemStack.getItem() instanceof CoinBase coin){
