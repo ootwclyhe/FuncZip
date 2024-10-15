@@ -3,7 +3,6 @@ package god.funczip.ItemSet.Coin;
 import god.funczip.RegisterSet.ItemRegister;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.Rarity;
 
 public class CopperCoin extends CoinBase{
     public CopperCoin() {

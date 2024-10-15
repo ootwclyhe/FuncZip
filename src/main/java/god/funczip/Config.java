@@ -18,7 +18,6 @@ public class Config {
 
     public static final ModConfigSpec SPEC = BUILDER.build();
 
-
     public static String invkit;
 
 

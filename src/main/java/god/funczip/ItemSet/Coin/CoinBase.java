@@ -7,8 +7,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-import java.util.Arrays;
-
 public abstract class CoinBase extends Item {
     public CoinBase(Properties properties) {
         super(properties.stacksTo(64));
