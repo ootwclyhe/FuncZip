@@ -13,7 +13,7 @@ import net.neoforged.neoforge.client.event.ViewportEvent;
 public class RenderThreadEvent {
     @SubscribeEvent
     public static void onRenderThreadEvent(ViewportEvent.RenderFog event) {
-        event.setNearPlaneDistance(-1F);
+        event.setNearPlaneDistance(0F);
         event.setFarPlaneDistance(Minecraft.getInstance().gameRenderer.getRenderDistance());
         event.setFogShape(FogShape.SPHERE);
         event.setCanceled(true);
