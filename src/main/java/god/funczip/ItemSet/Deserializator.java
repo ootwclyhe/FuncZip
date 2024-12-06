@@ -8,18 +8,18 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
+import org.jetbrains.annotations.NotNull;
 
 
 public class Deserializator extends Item {
     public Deserializator( ) {
-        super(new Item.Properties().rarity(Rarity.EPIC).component(DataComponents.ENCHANTMENT_GLINT_OVERRIDE, false));
+        super(new Item.Properties().rarity(Rarity.EPIC).component(DataComponents.ENCHANTMENT_GLINT_OVERRIDE, false).stacksTo(1));
     }
 
     @Override
-    public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity target, InteractionHand usedHand) {
-
+    public @NotNull InteractionResult interactLivingEntity(@NotNull ItemStack stack, @NotNull Player player, @NotNull LivingEntity target, @NotNull InteractionHand usedHand) {
         if (!(target instanceof Player)) {
-            if (!player.level().isClientSide && target.isAlive()) {
+            if (target.isAlive()) {
                 stack.set(DataComponents.ENCHANTMENT_GLINT_OVERRIDE, true);
             }
             return InteractionResult.sidedSuccess(player.level().isClientSide);
