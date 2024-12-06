@@ -31,4 +31,5 @@ public class ItemRegister {
     public static final Supplier<Item> GoldCoin = ITEMS.register("goldcoin", GoldCoin::new);
     public static final Supplier<Item> DiamondCoin = ITEMS.register("diamondcoin", DiamondCoin::new);
     public static final Supplier<Item> EmeraldCoin = ITEMS.register("emeraldcoin", EmeraldCoin::new);
+    public static final Supplier<Item> Deserializator = ITEMS.register("deserializator", Deserializator::new);
 }
