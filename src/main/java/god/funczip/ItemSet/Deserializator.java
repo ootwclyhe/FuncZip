@@ -28,9 +28,7 @@ public class Deserializator extends Item {
 
         if (!(target instanceof Player)) {
             if (!player.level().isClientSide && target.isAlive()) {
-                var temp = player.level().registryAccess().registryOrThrow(Registries.ENCHANTMENT);
-                var temp2 = temp.get(Enchantments.BINDING_CURSE);
-                stack.enchant(Holder.direct(temp2), 0);
+                stack.set(DataComponents.ENCHANTMENT_GLINT_OVERRIDE, true);
             }
             return InteractionResult.sidedSuccess(player.level().isClientSide);
         } else {
