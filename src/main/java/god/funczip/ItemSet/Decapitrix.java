@@ -55,8 +55,7 @@ public class Decapitrix extends Item {
             return new ItemStack(Items.WITHER_SKELETON_SKULL);
         }else if(le instanceof Creeper){
             return new ItemStack(Items.CREEPER_HEAD);
-        }
-        else if (le instanceof Minecart Minec) {
+        } else if (le instanceof Minecart Minec) {
             Minec.remove(Entity.RemovalReason.DISCARDED);
             ItemStack is = new ItemStack(Items.IRON_INGOT);
             return is;
