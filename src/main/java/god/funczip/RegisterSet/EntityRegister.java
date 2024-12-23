@@ -2,6 +2,7 @@ package god.funczip.RegisterSet;
 
 import god.funczip.EntitySet.EyeHookEntity;
 import god.funczip.EntitySet.FillBall;
+import god.funczip.EntitySet.PlayerGhost;
 import god.funczip.Funczip;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.EntityType;
@@ -25,4 +26,12 @@ public class EntityRegister {
                     clientTrackingRange(4).
                     updateInterval(10).
                     build(Funczip.MODID + ":fillballentity"));
+
+    public static final Supplier<EntityType<PlayerGhost>> playerghostEntity = ENTITIES.register("playerghost", () ->
+            EntityType.Builder.of(PlayerGhost::new, MobCategory.MISC)
+                    .eyeHeight(0.175F)
+                    .passengerAttachments(0.3375F)
+                    .ridingOffset(-0.125F)
+                    .clientTrackingRange(8).
+                    build(Funczip.MODID + ":playerghost"));
 }
