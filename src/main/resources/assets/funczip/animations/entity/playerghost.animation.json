@@ -1,0 +1,38 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"playerghost.model.crazy": {
+			"loop": true,
+			"animation_length": 0.5,
+			"bones": {
+				"la": {
+					"rotation": {
+						"vector": ["180+math.sin(query.anim_time * 360) * 25", "query.anim_time", "math.sin(query.anim_time * 360) * 25"]
+					}
+				},
+				"ra": {
+					"rotation": {
+						"vector": ["180+math.sin(query.anim_time * 360) * 25", 0, "math.sin(-query.anim_time * 360) * 25"]
+					}
+				},
+				"hd": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.125": {
+							"vector": [0, 0, "math.sin(query.anim_time * 2160) * 20"]
+						},
+						"0.375": {
+							"vector": [0, 0, "math.sin(query.anim_time * 2160) * 20"]
+						},
+						"0.5": {
+							"vector": [0, 0, 0]
+						}
+					}
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}
