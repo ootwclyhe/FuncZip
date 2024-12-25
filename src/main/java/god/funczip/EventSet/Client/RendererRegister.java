@@ -54,6 +54,7 @@ public class RendererRegister {
             }
         };
         event.registerItem(iClientItemExtensions, ItemRegister.FillBall.get());
+
     }
 
     public static ModelLayerLocation fillballlocation = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(Funczip.MODID, "fillballmodel"), "main");
