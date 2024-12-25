@@ -122,7 +122,7 @@ public class Decapitrix extends Item implements GeoItem {
         if (player.level() instanceof ServerLevel serverLevel){
             triggerAnim(player, GeoItem.getOrAssignId(player.getItemInHand(player.getUsedItemHand()), serverLevel), "Activation", "activate");
         }
-        return true;
+        return false;
     }
 
     @Override
