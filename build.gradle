@@ -146,7 +146,9 @@ tasks.withType(ProcessResources).configureEach {
             mod_description        : mod_description
     ]
     inputs.properties replaceProperties
-    expand replaceProperties
+    filesMatching(['META-INF/neoforge.mods.toml']) {
+        expand replaceProperties
+    }
     from "src/main/templates"
     into "build/generated/sources/modMetadata"
 }
