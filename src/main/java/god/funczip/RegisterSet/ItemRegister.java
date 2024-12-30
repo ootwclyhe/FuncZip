@@ -3,6 +3,8 @@ package god.funczip.RegisterSet;
 import god.funczip.Funczip;
 import god.funczip.ItemSet.*;
 import god.funczip.ItemSet.Coin.*;
+import god.funczip.ItemSet.FuncMaterials.FuncLeavesItem;
+import god.funczip.ItemSet.FuncMaterials.FuncWoodItem;
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.registries.DeferredRegister;
 

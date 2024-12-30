@@ -1,4 +1,4 @@
-package god.funczip.ItemSet;
+package god.funczip.ItemSet.FuncMaterials;
 
 import god.funczip.RegisterSet.BlockRegister;
 import net.minecraft.world.item.BlockItem;
