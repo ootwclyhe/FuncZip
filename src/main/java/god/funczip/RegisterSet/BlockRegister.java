@@ -15,5 +15,6 @@ public class BlockRegister {
     public static final Supplier<FillerBlock> fillerBlock = BLOCKS.register("fillerblock", () -> new FillerBlock());
     public static final Supplier<FuncWood> FuncWood = BLOCKS.register("funcwood", FuncWood::new);
     public static final Supplier<FuncLeaves> FuncLeaes = BLOCKS.register("funcleaves", FuncLeaves::new);
+    public static final Supplier<Deus_ex_machina> Deus_ex_machina = BLOCKS.register("deus_ex_machina", Deus_ex_machina::new);
 
 }

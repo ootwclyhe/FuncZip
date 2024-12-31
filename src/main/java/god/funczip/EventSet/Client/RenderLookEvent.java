@@ -17,6 +17,7 @@ public class RenderLookEvent {
             ItemBlockRenderTypes.setRenderLayer(BlockRegister.expberryBlock.get(), RenderType.CUTOUT);
             ItemBlockRenderTypes.setRenderLayer(BlockRegister.fillballBlock.get(), RenderType.CUTOUT);
             ItemBlockRenderTypes.setRenderLayer(BlockRegister.fillerBlock.get(), RenderType.CUTOUT);
+            ItemBlockRenderTypes.setRenderLayer(BlockRegister.Deus_ex_machina.get(), RenderType.CUTOUT);
         });
     }
 }

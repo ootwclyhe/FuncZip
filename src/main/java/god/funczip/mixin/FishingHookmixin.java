@@ -31,9 +31,9 @@ public abstract class FishingHookmixin extends Projectile {
             if (mc != null) {
                 InteractionHand hand = p.getMainHandItem().getItem() instanceof FishingRodItem ? InteractionHand.MAIN_HAND : InteractionHand.OFF_HAND;
                 try {
-                    Thread.sleep(20L);
+                    Thread.sleep(60L);
                     mc.useItem(p, hand);
-                    Thread.sleep(200L);
+                    Thread.sleep(600L);
                     mc.useItem(p, hand);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);

@@ -1,26 +1,16 @@
 package god.funczip.EventSet.Common;
 
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.chunk.ChunkAccess;
-import net.minecraft.world.level.dimension.BuiltinDimensionTypes;
-import net.minecraft.world.level.material.Fluids;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.level.ChunkEvent;
 
-import java.util.ArrayList;
-
 import static god.funczip.Funczip.MODID;
-import static god.funczip.Funczip.ctp;
 
 @EventBusSubscriber(modid = MODID)
 public class GenEvent {
     @SubscribeEvent
     public static void onGenEvent(ChunkEvent.Load event) {
-        if(event.isNewChunk()){
+        /*if(event.isNewChunk()){
             ArrayList<BlockPos> list = new ArrayList<>();
             ChunkAccess ca = event.getChunk();
             Level level = ca.getLevel();
@@ -29,7 +19,7 @@ public class GenEvent {
             }
             ctp.execute(()->{
                 ca.findBlocks(blockState -> blockState.getFluidState().is(Fluids.LAVA), (blockPos, blockState) -> {
-                    if(blockPos.getY()>60){
+                    if(Math.abs(ca.getHeight(WORLD_SURFACE_WG, blockPos.getX(), blockPos.getZ())-blockPos.getY())<=5){
                         return;
                     }
                     BlockState block = ca.getBlockState(blockPos.below());
@@ -38,10 +28,12 @@ public class GenEvent {
                         list.add(blockPos.below());
                     }
                 });
-                if(!list.isEmpty()){
-                    ca.setBlockState(list.get(list.size()/2), Blocks.CHEST.defaultBlockState(), false);
-                }
+
+                ca.setBlockState(list.get(list.size()/2), BlockRegister.Deus_ex_machina.get().defaultBlockState(), false);
             });
-        }
+        }*/
     }
 }
+
+
+
