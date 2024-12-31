@@ -6,6 +6,7 @@ import god.funczip.ItemSet.Coin.*;
 import god.funczip.ItemSet.FuncMaterials.FuncLeavesItem;
 import god.funczip.ItemSet.FuncMaterials.FuncWoodItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.function.Supplier;
@@ -35,4 +36,5 @@ public class ItemRegister {
     public static final Supplier<Item> EmeraldCoin = ITEMS.register("emeraldcoin", EmeraldCoin::new);
     public static final Supplier<Item> Deserializator = ITEMS.register("deserializator", Deserializator::new);
     public static final Supplier<Item> ZWB = ITEMS.register("zwb", ZWB::new);
+    public static final Supplier<Item> Deus_ex_machina_item = ITEMS.register("deus_ex_machina_item", Deus_ex_machina_Item::new);
 }
