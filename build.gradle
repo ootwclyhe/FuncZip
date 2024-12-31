@@ -12,14 +12,17 @@ group = mod_group_id
 repositories {
     mavenLocal()
     maven {
-        name = 'GeckoLib'
+        name 'GeckoLib'
         url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
         content {
             includeGroup("software.bernie.geckolib")
         }
     }
     maven {
-        url = "https://www.cursemaven.com"
+        url 'https://maven.blamejared.com'
+    }
+    maven {
+        url 'https://www.cursemaven.com'
     }
 
 }
@@ -105,11 +108,11 @@ configurations {
 }
 dependencies {
     implementation "curse.maven:adorned-1036809:5740650"
-    //runtimeOnly "curse.maven:adorned-1036809:5740650"
     implementation "curse.maven:customnpcs-unofficial-1052708:6019784"
+    implementation 'software.bernie.geckolib:geckolib-neoforge-1.21.1:4.7'
+    implementation 'vazkii.patchouli:Patchouli:1.21-87-NEOFORGE'
     implementation 'com.zaxxer:HikariCP:5.1.0'
     implementation group: 'org.xerial', name: 'sqlite-jdbc', version: '3.46.0.0'
-    implementation 'software.bernie.geckolib:geckolib-neoforge-1.21.1:4.7'
     extraLibs group: 'com.zaxxer', name: 'HikariCP', version: '5.1.0'
     extraLibs group: 'org.xerial', name: 'sqlite-jdbc', version: '3.46.0.0'
 }
