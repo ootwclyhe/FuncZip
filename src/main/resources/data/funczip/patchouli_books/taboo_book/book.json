@@ -4,5 +4,6 @@
   "version": 1,
   "creative_tab": "minecraft:tools_and_utilities",
   "use_resource_pack": true,
-  "model": "funczip:baiduitem"
+  "dont_generate_book": true,
+  "custom_book_item": "funczip:taboo_book#1"
 }

@@ -37,4 +37,6 @@ public class ItemRegister {
     public static final Supplier<Item> Deserializator = ITEMS.register("deserializator", Deserializator::new);
     public static final Supplier<Item> ZWB = ITEMS.register("zwb", ZWB::new);
     public static final Supplier<Item> Deus_ex_machina_item = ITEMS.register("deus_ex_machina_item", Deus_ex_machina_Item::new);
+    public static final Supplier<Item> taboo_book = ITEMS.register("taboo_book", TabooBook::new);
+
 }
