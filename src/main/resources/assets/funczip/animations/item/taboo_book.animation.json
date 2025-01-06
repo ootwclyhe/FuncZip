@@ -59,12 +59,16 @@
 					"rotation": {
 						"0.0": [0, 0, 0],
 						"0.5": [90, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.5": [0, 0, 3.25]
 					}
 				}
 			}
 		},
 		"animation.taboo_book.stop": {
-			"loop": false
+			"loop": "hold_on_last_frame"
 		}
 	},
 	"geckolib_format_version": 2
