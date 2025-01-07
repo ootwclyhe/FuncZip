@@ -8,6 +8,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RenderLivingEvent;
 import net.neoforged.neoforge.client.event.ViewportEvent;
+import software.bernie.geckolib.event.GeoRenderEvent;
 
 import java.util.HashMap;
 
@@ -47,5 +48,9 @@ public class RenderThreadEvent {
                 i = 32;
             }
         }
+    }
+    @SubscribeEvent
+    public static void onRenderGeoModel(GeoRenderEvent.Item.Post event){
+
     }
 }
