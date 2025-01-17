@@ -4,12 +4,12 @@ import god.funczip.Funczip;
 import god.funczip.ItemSet.*;
 import god.funczip.Items.Coin.*;
 import god.funczip.Items.ExpBerry.ExpBerry;
-import net.minecraft.world.item.Item;
-import net.neoforged.neoforge.registries.DeferredRegister;
-import java.util.function.Supplier;
-
 import god.funczip.Items.FuncMaterials.FuncLeaves;
 import god.funczip.Items.FuncMaterials.FuncWood;
+import net.minecraft.world.item.Item;
+import net.neoforged.neoforge.registries.DeferredRegister;
+
+import java.util.function.Supplier;
 
 
 public class ItemRegister {

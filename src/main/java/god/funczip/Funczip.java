@@ -19,13 +19,13 @@ import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-import static god.funczip.EventSet.Client.ParticleReg.PARTICLE_TYPES;
 import static god.funczip.Blocks.BlockEntityRegister.BLOCKENTITIES;
 import static god.funczip.Blocks.BlockRegister.BLOCKS;
+import static god.funczip.EventSet.Client.ParticleReg.PARTICLE_TYPES;
+import static god.funczip.Items.ItemRegister.ITEMS;
 import static god.funczip.RegisterSet.EntityRegister.ENTITIES;
 import static god.funczip.RegisterSet.FluidRegister.FLUIDS;
 import static god.funczip.RegisterSet.FluidRegister.FLUIDTYPES;
-import static god.funczip.Items.ItemRegister.ITEMS;
 import static god.funczip.RegisterSet.SoundEventRegister.SOUNDEVENTS;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file

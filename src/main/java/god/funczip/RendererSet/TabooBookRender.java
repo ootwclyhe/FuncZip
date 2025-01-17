@@ -2,9 +2,7 @@ package god.funczip.RendererSet;
 
 
 import god.funczip.ItemSet.TabooBook;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.animal.frog.Frog;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.cache.object.GeoBone;
 import software.bernie.geckolib.model.DefaultedItemGeoModel;

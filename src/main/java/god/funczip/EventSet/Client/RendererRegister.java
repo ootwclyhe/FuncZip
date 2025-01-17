@@ -1,8 +1,8 @@
 package god.funczip.EventSet.Client;
 
 import god.funczip.Funczip;
-import god.funczip.RegisterSet.EntityRegister;
 import god.funczip.Items.ItemRegister;
+import god.funczip.RegisterSet.EntityRegister;
 import god.funczip.RendererSet.EyeHookRenderer;
 import god.funczip.RendererSet.FunczipItemRender;
 import god.funczip.RendererSet.Models.FillBallModel;

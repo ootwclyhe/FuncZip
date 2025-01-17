@@ -1,6 +1,8 @@
 package god.funczip.Blocks;
 
-import god.funczip.BlockSet.*;
+import god.funczip.BlockSet.Deus_ex_machina;
+import god.funczip.BlockSet.FillBallBlock;
+import god.funczip.BlockSet.FillerBlock;
 import god.funczip.Blocks.Baidu.Baidu;
 import god.funczip.Blocks.ExpBerry.ExpBerry;
 import god.funczip.Blocks.Fluids.Shimmer.ShimmerBlock;
@@ -8,6 +10,7 @@ import god.funczip.Blocks.FuncMaterials.FuncLeaves;
 import god.funczip.Blocks.FuncMaterials.FuncWood;
 import god.funczip.Funczip;
 import net.neoforged.neoforge.registries.DeferredRegister;
+
 import java.util.function.Supplier;
 
 public class BlockRegister {

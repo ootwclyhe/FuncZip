@@ -1,7 +1,7 @@
 package god.funczip.EventSet.Client;
 
-import god.funczip.Funczip;
 import god.funczip.Blocks.BlockRegister;
+import god.funczip.Funczip;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.neoforged.api.distmarker.Dist;
