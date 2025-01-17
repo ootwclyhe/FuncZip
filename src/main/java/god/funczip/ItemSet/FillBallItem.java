@@ -1,7 +1,7 @@
 package god.funczip.ItemSet;
 
 import god.funczip.EntitySet.FillBall;
-import god.funczip.RegisterSet.BlockRegister;
+import god.funczip.Blocks.BlockRegister;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Position;

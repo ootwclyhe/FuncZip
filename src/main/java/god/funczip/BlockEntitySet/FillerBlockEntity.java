@@ -1,7 +1,7 @@
 package god.funczip.BlockEntitySet;
 
 import god.funczip.MenuSet.FillerMenu;
-import god.funczip.RegisterSet.BlockEntityRegister;
+import god.funczip.Blocks.BlockEntityRegister;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;

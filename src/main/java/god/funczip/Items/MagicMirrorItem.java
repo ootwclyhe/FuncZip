@@ -1,4 +1,4 @@
-package god.funczip.ItemSet;
+package god.funczip.Items;
 
 import god.funczip.RegisterSet.SoundEventRegister;
 import net.minecraft.core.BlockPos;

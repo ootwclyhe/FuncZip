@@ -1,8 +1,8 @@
 package god.funczip.EventSet.Common;
 
 import god.funczip.CustomSet.RenruguData;
-import god.funczip.ItemSet.Decapitrix;
-import god.funczip.RegisterSet.ItemRegister;
+import god.funczip.Items.Decapitrix.Decapitrix;
+import god.funczip.Items.ItemRegister;
 import god.funczip.RegisterSet.SoundEventRegister;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.MinecraftServer;

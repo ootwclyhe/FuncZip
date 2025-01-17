@@ -1,6 +1,6 @@
-package god.funczip.ItemSet.Coin;
+package god.funczip.Items.Coin;
 
-import god.funczip.RegisterSet.ItemRegister;
+import god.funczip.Items.ItemRegister;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 
@@ -16,7 +16,7 @@ public class CopperCoin extends CoinBase{
 
     @Override
     public Item getPrev() {
-        return Items.STONE;
+        return Items.AIR;
     }
 
     @Override

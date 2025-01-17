@@ -1,6 +1,6 @@
-package god.funczip.BlockSet;
+package god.funczip.Blocks.ExpBerry;
 
-import god.funczip.RegisterSet.ItemRegister;
+import god.funczip.Items.ItemRegister;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -18,10 +18,10 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.BlockHitResult;
 
-public class ExpBerryBlock extends SweetBerryBushBlock {
+public class ExpBerry extends SweetBerryBushBlock {
 
 
-    public ExpBerryBlock() {
+    public ExpBerry() {
         super(BlockBehaviour.Properties.of()
                 .mapColor(MapColor.PLANT)
                 .randomTicks()

@@ -1,4 +1,4 @@
-package god.funczip.BlockSet;
+package god.funczip.Blocks.FuncMaterials;
 
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SoundType;

@@ -2,33 +2,24 @@ package god.funczip.EventSet.Client;
 
 import god.funczip.Funczip;
 import god.funczip.RegisterSet.EntityRegister;
-import god.funczip.RegisterSet.ItemRegister;
+import god.funczip.Items.ItemRegister;
 import god.funczip.RendererSet.EyeHookRenderer;
 import god.funczip.RendererSet.FunczipItemRender;
 import god.funczip.RendererSet.Models.FillBallModel;
 import god.funczip.RendererSet.PlayerGhostRender;
 import net.minecraft.client.model.geom.ModelLayerLocation;
-import net.minecraft.client.particle.TrialSpawnerDetectionParticle;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.client.renderer.item.ItemProperties;
-import net.minecraft.core.particles.ParticleType;
-import net.minecraft.core.particles.SimpleParticleType;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.FishingRodItem;
 import net.neoforged.api.distmarker.Dist;
-import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
-import net.neoforged.neoforge.registries.DeferredRegister;
-
-import java.util.function.Supplier;
 
 @EventBusSubscriber(modid = Funczip.MODID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
 public class RendererRegister {

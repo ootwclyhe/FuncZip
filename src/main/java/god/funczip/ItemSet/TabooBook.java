@@ -2,7 +2,9 @@ package god.funczip.ItemSet;
 
 import god.funczip.RendererSet.TabooBookRender;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
@@ -20,6 +22,7 @@ import software.bernie.geckolib.animation.AnimationController;
 import software.bernie.geckolib.animation.PlayState;
 import software.bernie.geckolib.animation.RawAnimation;
 import software.bernie.geckolib.util.GeckoLibUtil;
+import vazkii.patchouli.api.PatchouliAPI;
 
 import java.util.function.Consumer;
 
@@ -61,7 +64,7 @@ public class TabooBook extends Item implements GeoItem {
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         if (level instanceof ServerLevel serverLevel) {
-            //PatchouliAPI.get().openBookGUI((ServerPlayer) player, ResourceLocation.fromNamespaceAndPath("funczip", "taboo_book"));
+            PatchouliAPI.get().openBookGUI((ServerPlayer) player, ResourceLocation.fromNamespaceAndPath("funczip", "taboo_book"));
         } else {
             triggerAnim(player, GeoItem.getId(player.getItemInHand(hand)), "Activation", "activate");
         }

@@ -1,4 +1,4 @@
-package god.funczip.BlockSet;
+package god.funczip.Blocks.Fluids.Shimmer;
 
 import god.funczip.RegisterSet.FluidRegister;
 import net.minecraft.world.level.block.LiquidBlock;

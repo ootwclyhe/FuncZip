@@ -1,4 +1,4 @@
-package god.funczip.RegisterSet;
+package god.funczip.Blocks;
 
 import god.funczip.BlockEntitySet.FillerBlockEntity;
 import god.funczip.Funczip;

@@ -1,4 +1,4 @@
-package god.funczip.BlockSet;
+package god.funczip.Blocks.FuncMaterials;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;

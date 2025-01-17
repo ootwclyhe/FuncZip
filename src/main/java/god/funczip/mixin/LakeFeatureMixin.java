@@ -1,6 +1,6 @@
 package god.funczip.mixin;
 
-import god.funczip.RegisterSet.BlockRegister;
+import god.funczip.Blocks.BlockRegister;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.level.levelgen.Heightmap;

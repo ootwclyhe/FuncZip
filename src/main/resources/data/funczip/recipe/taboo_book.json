@@ -10,10 +10,7 @@
     }
   ],
   "result": {
-    "id": "patchouli:guide_book",
-    "components": {
-      "patchouli:book": "funczip:taboo_book"
-    },
+    "id": "funczip:taboo_book",
     "count": 1
   }
 }

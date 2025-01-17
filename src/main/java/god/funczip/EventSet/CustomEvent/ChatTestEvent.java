@@ -1,7 +1,7 @@
 package god.funczip.EventSet.CustomEvent;
 
 import god.funczip.Funczip;
-import god.funczip.ItemSet.Coin.CoinBase;
+import god.funczip.Items.Coin.CoinBase;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;

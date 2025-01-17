@@ -4,6 +4,7 @@ package god.funczip.RendererSet;
 import god.funczip.ItemSet.TabooBook;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.animal.frog.Frog;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.cache.object.GeoBone;
 import software.bernie.geckolib.model.DefaultedItemGeoModel;
@@ -23,9 +24,12 @@ public class TabooBookRender  extends DynamicGeoItemRenderer<TabooBook> {
     @Nullable
     protected ResourceLocation getTextureOverrideForBone(GeoBone bone, TabooBook animatable, float partialTick) {
         if(bone.getName().contains("page")){
-            if(count>730)count=0;
+            int page = 8;
+            int rate = 80;
+            if(count>page*rate)count=0;
             count++;
-            return ResourceLocation.fromNamespaceAndPath(MODID, "textures/item/book/page_"+ count/80 + ".png");
+            this.computeTextureSize(ResourceLocation.fromNamespaceAndPath(MODID, "textures/item/book/page_"+ count/rate + ".png"));
+            return ResourceLocation.fromNamespaceAndPath(MODID, "textures/item/book/page_"+ count/rate + ".png");
         }
         return null;
     }

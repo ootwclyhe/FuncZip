@@ -1,6 +1,6 @@
-package god.funczip.ItemSet.Coin;
+package god.funczip.Items.Coin;
 
-import god.funczip.RegisterSet.ItemRegister;
+import god.funczip.Items.ItemRegister;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 

@@ -1,6 +1,6 @@
 package god.funczip.ItemSet;
 
-import god.funczip.RegisterSet.BlockRegister;
+import god.funczip.Blocks.BlockRegister;
 import net.minecraft.world.item.BlockItem;
 
 public class FillerItem extends BlockItem {

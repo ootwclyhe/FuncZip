@@ -1,11 +1,7 @@
-package god.funczip.ItemSet;
+package god.funczip.Items.Decapitrix;
 
-import god.funczip.RendererSet.DecapitrixRenderer;
-import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.LivingEntity;
@@ -15,33 +11,21 @@ import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.monster.Skeleton;
 import net.minecraft.world.entity.monster.WitherSkeleton;
 import net.minecraft.world.entity.monster.Zombie;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.Minecart;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.component.ResolvableProfile;
-import software.bernie.geckolib.animatable.GeoItem;
-import software.bernie.geckolib.animatable.SingletonGeoAnimatable;
-import software.bernie.geckolib.animatable.client.GeoRenderProvider;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.AnimatableManager;
-import software.bernie.geckolib.animation.AnimationController;
-import software.bernie.geckolib.animation.PlayState;
-import software.bernie.geckolib.animation.RawAnimation;
-import software.bernie.geckolib.util.GeckoLibUtil;
 
-import java.util.function.Consumer;
+public class Decapitrix extends Item /*implements GeoItem*/ {
 
-public class Decapitrix extends Item implements GeoItem {
-
-    private static final RawAnimation ACTIVATE_ANIM = RawAnimation.begin().thenPlay("animation.decapitrix.hit");
-    private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
+    /*private static final RawAnimation ACTIVATE_ANIM = RawAnimation.begin().thenPlay("animation.decapitrix.hit");
+    private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);*/
 
     public Decapitrix() {
         super(new Item.Properties().durability(128).attributes(createAttributes()));
-        SingletonGeoAnimatable.registerSyncedAnimatable(this);
+        /*SingletonGeoAnimatable.registerSyncedAnimatable(this);*/
     }
 
     public static ItemAttributeModifiers createAttributes() {
@@ -90,7 +74,7 @@ public class Decapitrix extends Item implements GeoItem {
         return true;
     }
 
-    @Override
+    /*@Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return this.cache;
     }
@@ -128,6 +112,6 @@ public class Decapitrix extends Item implements GeoItem {
     @Override
     public boolean onEntitySwing(ItemStack stack, LivingEntity entity, InteractionHand hand) {
         return true;
-    }
+    }*/
 
 }

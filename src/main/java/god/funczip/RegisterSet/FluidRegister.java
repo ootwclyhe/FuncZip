@@ -1,7 +1,7 @@
 package god.funczip.RegisterSet;
 
-import god.funczip.FluidSet.ShimmerFluid;
-import god.funczip.FluidSet.ShimmerType;
+import god.funczip.Blocks.Fluids.Shimmer.ShimmerFluid;
+import god.funczip.Blocks.Fluids.Shimmer.ShimmerType;
 import god.funczip.Funczip;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.material.Fluid;

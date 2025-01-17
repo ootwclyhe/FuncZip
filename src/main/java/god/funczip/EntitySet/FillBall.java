@@ -1,7 +1,7 @@
 package god.funczip.EntitySet;
 
 import god.funczip.RegisterSet.EntityRegister;
-import god.funczip.RegisterSet.ItemRegister;
+import god.funczip.Items.ItemRegister;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleOptions;

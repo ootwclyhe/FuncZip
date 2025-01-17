@@ -1,8 +1,8 @@
-package god.funczip.FluidSet;
+package god.funczip.Blocks.Fluids.Shimmer;
 
-import god.funczip.RegisterSet.BlockRegister;
+import god.funczip.Blocks.BlockRegister;
 import god.funczip.RegisterSet.FluidRegister;
-import god.funczip.RegisterSet.ItemRegister;
+import god.funczip.Items.ItemRegister;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleOptions;

@@ -1,4 +1,4 @@
-package god.funczip.ItemSet.Coin;
+package god.funczip.Items.Coin;
 
 import net.minecraft.world.item.Item;
 

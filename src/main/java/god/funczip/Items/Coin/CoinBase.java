@@ -1,6 +1,6 @@
-package god.funczip.ItemSet.Coin;
+package god.funczip.Items.Coin;
 
-import god.funczip.RegisterSet.ItemRegister;
+import god.funczip.Items.ItemRegister;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.Item;

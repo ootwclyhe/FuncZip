@@ -1,4 +1,4 @@
-package god.funczip.FluidSet;
+package god.funczip.Blocks.Fluids.Shimmer;
 
 import god.funczip.CustomSet.ByteData;
 import god.funczip.CustomSet.DisCraftData;
