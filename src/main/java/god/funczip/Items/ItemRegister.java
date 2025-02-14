@@ -3,6 +3,7 @@ package god.funczip.Items;
 import god.funczip.Funczip;
 import god.funczip.ItemSet.*;
 import god.funczip.Items.Coin.*;
+import god.funczip.Items.Deus_ex_machina.Deus_ex_machina;
 import god.funczip.Items.ExpBerry.ExpBerry;
 import god.funczip.Items.FuncMaterials.FuncLeaves;
 import god.funczip.Items.FuncMaterials.FuncWood;
@@ -16,7 +17,7 @@ public class ItemRegister {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Funczip.MODID);
 
     public static final Supplier<Item> EnderEyeRod = ITEMS.register("endereye_on_stick", EnderEyeOnStickItem::new);
-    public static final Supplier<Item> MagicMirror = ITEMS.register("magicmirror", MagicMirrorItem::new);
+    public static final Supplier<Item> MagicMirror = ITEMS.register("magicmirror", god.funczip.Items.MagicMirror.MagicMirror::new);
     public static final Supplier<Item> ShimmerBucket = ITEMS.register("shimmerbucket", ShimmerBucket::new);
     public static final Supplier<Item> ExpBerry = ITEMS.register("expberry", ExpBerry::new);
     public static final Supplier<Item> FillBall = ITEMS.register("fillball", FillBallItem::new);
@@ -27,7 +28,7 @@ public class ItemRegister {
     public static final Supplier<Item> RenRuGu = ITEMS.register("renrugu", RenRuGu::new);
     public static final Supplier<Item> Decapitrix = ITEMS.register("decapitrix", god.funczip.Items.Decapitrix.Decapitrix::new);
 
-    public static final Supplier<Item> BeerItem = ITEMS.register("beeritem", BeerItem::new);
+    public static final Supplier<Item> Maotai = ITEMS.register("maotai", Maotai::new);
     public static final Supplier<Item> FootCuff = ITEMS.register("footcuff", FootCuffItem::new);
 
     public static final Supplier<Item> CopperCoin = ITEMS.register("coppercoin", CopperCoin::new);
@@ -37,7 +38,7 @@ public class ItemRegister {
     public static final Supplier<Item> EmeraldCoin = ITEMS.register("emeraldcoin", EmeraldCoin::new);
     public static final Supplier<Item> Deserializator = ITEMS.register("deserializator", Deserializator::new);
     public static final Supplier<Item> ZWB = ITEMS.register("zwb", ZWB::new);
-    public static final Supplier<Item> Deus_ex_machina_item = ITEMS.register("deus_ex_machina_item", Deus_ex_machina_Item::new);
+    public static final Supplier<Item> Deus_ex_machina_item = ITEMS.register("deus_ex_machina", Deus_ex_machina::new);
     public static final Supplier<Item> taboo_book = ITEMS.register("taboo_book", TabooBook::new);
 
 }

@@ -1,6 +1,6 @@
 package god.funczip.Blocks;
 
-import god.funczip.BlockSet.Deus_ex_machina;
+import god.funczip.Blocks.Deus_ex_machina.Deus_ex_machina;
 import god.funczip.BlockSet.FillBallBlock;
 import god.funczip.BlockSet.FillerBlock;
 import god.funczip.Blocks.Baidu.Baidu;

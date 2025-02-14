@@ -18,14 +18,10 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.component.ResolvableProfile;
 
-public class Decapitrix extends Item /*implements GeoItem*/ {
-
-    /*private static final RawAnimation ACTIVATE_ANIM = RawAnimation.begin().thenPlay("animation.decapitrix.hit");
-    private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);*/
+public class Decapitrix extends Item{
 
     public Decapitrix() {
         super(new Item.Properties().durability(128).attributes(createAttributes()));
-        /*SingletonGeoAnimatable.registerSyncedAnimatable(this);*/
     }
 
     public static ItemAttributeModifiers createAttributes() {
@@ -73,45 +69,5 @@ public class Decapitrix extends Item /*implements GeoItem*/ {
     public boolean canDisableShield(ItemStack stack, ItemStack shield, LivingEntity entity, LivingEntity attacker) {
         return true;
     }
-
-    /*@Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return this.cache;
-    }
-
-    @Override
-    public void createGeoRenderer(Consumer<GeoRenderProvider> consumer) {
-        consumer.accept(new GeoRenderProvider() {
-            private DecapitrixRenderer renderer;
-
-            @Override
-            public BlockEntityWithoutLevelRenderer getGeoItemRenderer() {
-                if (this.renderer == null)
-                    this.renderer = new DecapitrixRenderer();
-                return this.renderer;
-            }
-        });
-    }
-
-    @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this, "Activation", 0, state -> PlayState.STOP)
-                .triggerableAnim("activate", ACTIVATE_ANIM));
-        // We've marked the "activate" animation as being triggerable from the server
-    }
-
-    @Override
-    public boolean onLeftClickEntity(ItemStack stack, Player player, Entity entity) {
-        super.onLeftClickEntity(stack, player, entity);
-        if (player.level() instanceof ServerLevel serverLevel){
-            triggerAnim(player, GeoItem.getOrAssignId(player.getItemInHand(player.getUsedItemHand()), serverLevel), "Activation", "activate");
-        }
-        return false;
-    }
-
-    @Override
-    public boolean onEntitySwing(ItemStack stack, LivingEntity entity, InteractionHand hand) {
-        return true;
-    }*/
 
 }

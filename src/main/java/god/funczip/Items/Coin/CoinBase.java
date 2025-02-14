@@ -18,6 +18,10 @@ public abstract class CoinBase extends Item {
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
         if(stack.getCount()==64 && entity instanceof ServerPlayer player){
+            if(getNext()==null){
+                stack.setCount(0);
+                player.getInventory().placeItemBackInInventory(new ItemStack(ItemRegister.Maotai.get(), 32));
+            }
             stack.setCount(0);
             player.getInventory().placeItemBackInInventory(new ItemStack(getNext()));
         }

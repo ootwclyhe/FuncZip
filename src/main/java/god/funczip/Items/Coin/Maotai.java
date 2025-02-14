@@ -1,4 +1,4 @@
-package god.funczip.ItemSet;
+package god.funczip.Items.Coin;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -11,9 +11,9 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-public class BeerItem extends Item {
+public class Maotai extends Item {
 
-    public BeerItem() {
+    public Maotai() {
         super(new Properties()
                 .food(new FoodProperties.Builder()
                         .nutrition(4)

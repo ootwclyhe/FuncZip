@@ -1,4 +1,4 @@
-package god.funczip.ItemSet;
+package god.funczip.Items.Deus_ex_machina;
 
 import god.funczip.Blocks.BlockRegister;
 import net.minecraft.world.item.BlockItem;
@@ -6,8 +6,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import org.jetbrains.annotations.NotNull;
 
-public class Deus_ex_machina_Item extends BlockItem {
-    public Deus_ex_machina_Item() {
+public class Deus_ex_machina extends BlockItem {
+    public Deus_ex_machina() {
         super(BlockRegister.Deus_ex_machina.get(), new Properties().durability(6).rarity(Rarity.EPIC));
     }
     @Override

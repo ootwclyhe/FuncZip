@@ -1,4 +1,4 @@
-package god.funczip.Items;
+package god.funczip.Items.MagicMirror;
 
 import god.funczip.RegisterSet.SoundEventRegister;
 import net.minecraft.core.BlockPos;
@@ -19,10 +19,10 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.portal.DimensionTransition;
 import net.minecraft.world.phys.Vec3;
 
-public class MagicMirrorItem extends Item {
+public class MagicMirror extends Item {
 
 
-    public MagicMirrorItem() {
+    public MagicMirror() {
         super(new Item.Properties().rarity(Rarity.UNCOMMON));
     }
 
