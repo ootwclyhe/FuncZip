@@ -21,7 +21,7 @@ import static god.funczip.Funczip.ctp;
 @EventBusSubscriber(modid = MODID, value = Dist.DEDICATED_SERVER)
 public class LoginEvent {
     @SubscribeEvent
-    public static void onLogin(PlayerEvent.PlayerLoggedInEvent event) throws SQLException, IOException {
+    public static void onLogin(PlayerEvent.PlayerLoggedInEvent event) {
         ServerPlayer p = (ServerPlayer) event.getEntity();
         ctp.execute(() -> {
             try {
